@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { SECTIONS, SOCIAL } from "@/app/data";
+import { SECTIONS } from "@/app/data/sections";
+import { SOCIAL } from "@/app/data/social";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -117,6 +118,7 @@ export function Header() {
                           dotColor = "bg-teal-400";
                         else if (label === "Projects")
                           dotColor = "bg-purple-500";
+                        else if (label === "Partners") dotColor = "bg-pink-500";
 
                         return (
                           <li key={id}>
