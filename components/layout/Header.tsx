@@ -111,14 +111,7 @@ export function Header() {
                     </h3>
                     <ul className="flex flex-col gap-4">
                       {SECTIONS.map(({ id, label }) => {
-                        let dotColor = "bg-white";
-                        if (label === "Home") dotColor = "bg-yellow-500";
-                        else if (label === "About Me") dotColor = "bg-blue-500";
-                        else if (label === "Experience")
-                          dotColor = "bg-teal-400";
-                        else if (label === "Projects")
-                          dotColor = "bg-purple-500";
-                        // else if (label === "Partners") dotColor = "bg-pink-500";
+                        const dotColor = "bg-[var(--accent)]";
 
                         return (
                           <li key={id}>
