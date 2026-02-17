@@ -4,16 +4,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { getStackIcon } from "@/components/sections/stack-icons";
 
-const ICONS = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "JavaScript (ES6+)",
-  "Redux Toolkit",
-  "HTML5",
-  "CSS3",
-];
+import { STACK } from "@/app/data";
+
+const ICONS = Object.values(STACK).flat();
 
 export function FloatingIcons() {
   const [isMounted, setIsMounted] = useState(false);

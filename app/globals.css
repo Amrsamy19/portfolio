@@ -28,15 +28,6 @@ body {
 }
 
 /* Subtle texture */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(168, 85, 247, 0.08) 1px, transparent 0);
-  background-size: 48px 48px;
-  pointer-events: none;
-  z-index: 0;
-}
 
 ::selection {
   background: rgba(168, 85, 247, 0.25);
@@ -44,17 +35,25 @@ body::before {
 
 /* Card hover */
 .card-hover {
-  transition: transform 0.25s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.25s ease-out,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.5), 0 0 48px -12px rgba(168, 85, 247, 0.2);
+  box-shadow:
+    0 20px 40px -16px rgba(0, 0, 0, 0.5),
+    0 0 48px -12px rgba(168, 85, 247, 0.2);
   border-color: rgba(168, 85, 247, 0.4);
 }
 
 /* Small card / pill hover (e.g. stack skills) */
 .card-hover-sm {
-  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 .card-hover-sm:hover {
   transform: translateY(-3px);
@@ -64,7 +63,10 @@ body::before {
 
 /* Primary button (accent fill) */
 .btn-primary {
-  transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background-color 0.2s ease;
 }
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
@@ -73,7 +75,11 @@ body::before {
 
 /* Secondary / outline button */
 .btn-secondary {
-  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .btn-secondary:hover {
   transform: translateY(-2px);
@@ -82,7 +88,11 @@ body::before {
 
 /* Pill / small button (e.g. Live, Repo) */
 .btn-pill {
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 .btn-pill:hover {
   transform: scale(1.05);
