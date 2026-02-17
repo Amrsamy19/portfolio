@@ -1,10 +1,10 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { PageLoader } from "@/components/PageLoader";
 import { Header } from "@/components/layout/Header";
 import { VerticalEmail } from "@/components/layout/VerticalEmail";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
-import { FloatingIcons } from "@/components/ui/FloatingIcons";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Stack } from "@/components/sections/Stack";
@@ -13,6 +13,12 @@ import { Projects } from "@/components/sections/Projects";
 import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+
+const FloatingIcons = dynamic(
+  () =>
+    import("@/components/ui/FloatingIcons").then((mod) => mod.FloatingIcons),
+  { ssr: false },
+);
 
 export default function Home() {
   return (
@@ -28,7 +34,7 @@ export default function Home() {
         <Stack />
         <Experience />
         <Projects />
-        <Partners />
+        {/* <Partners /> */}
         <Contact />
         <Footer />
       </main>

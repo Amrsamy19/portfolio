@@ -26,7 +26,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="group flex flex-col gap-1.5 w-8 h-6 justify-center items-end cursor-pointer"
+          className="group flex flex-col gap-1.5 w-8 h-8 justify-center items-end cursor-pointer"
           aria-label="Open menu"
         >
           <span className="block w-6 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
@@ -118,7 +118,7 @@ export function Header() {
                           dotColor = "bg-teal-400";
                         else if (label === "Projects")
                           dotColor = "bg-purple-500";
-                        else if (label === "Partners") dotColor = "bg-pink-500";
+                        // else if (label === "Partners") dotColor = "bg-pink-500";
 
                         return (
                           <li key={id}>
