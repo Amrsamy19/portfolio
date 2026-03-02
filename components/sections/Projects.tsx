@@ -25,9 +25,16 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="p-6 md:p-8 pl-7 md:pl-9">
         <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/15 text-sm font-bold text-[var(--accent)]">
-            {project.id}
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/15 text-sm font-bold text-[var(--accent)]">
+              {project.id}
+            </span>
+            {"freelance" in project && project.freelance && (
+              <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-500 border border-emerald-500/20">
+                Freelance
+              </span>
+            )}
+          </div>
           <div className="flex flex-wrap gap-2">
             {project.live && (
               <a

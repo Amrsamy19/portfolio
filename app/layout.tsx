@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Frontend Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript. Based in Cairo, Egypt.",
 };
 
+import { Preloader } from "@/components/ui/Preloader";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={plusJakarta.variable}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <Preloader />
+        {children}
+      </body>
     </html>
   );
 }
