@@ -7,6 +7,16 @@ import { SOCIAL } from "@/app/data/social";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -22,7 +32,26 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 right-0 z-50 flex items-center justify-end p-6 md:p-8">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 ${
+          scrolled
+            ? "bg-black/60 backdrop-blur-md py-4 px-6 md:px-12"
+            : "py-6 px-6 md:py-8 md:px-12"
+        }`}
+      >
+        <a href="#home" className="flex items-center gap-3 group">
+          <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-[var(--card)] border border-[var(--border)] group-hover:border-[var(--accent)] transition-all duration-300 shadow-lg">
+            <img
+              src="/logo.png"
+              alt="Amr Samy"
+              className="w-full h-full object-cover p-1 group-hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <span className="font-bold text-lg tracking-tight hidden sm:block">
+            AMR<span className="text-[var(--accent)]">SAMY</span>
+          </span>
+        </a>
+
         <button
           type="button"
           onClick={() => setOpen(true)}
