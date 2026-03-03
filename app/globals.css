@@ -18,7 +18,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 110%; /* Makes all rem-based sizes ~10% larger */
+  font-size: 100%; /* Makes all rem-based sizes ~10% larger */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

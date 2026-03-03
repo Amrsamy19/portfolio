@@ -10,7 +10,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Amr Samy Ramadan | Software Engineer",
+  title: "Amr Samy | Software Engineer",
   description:
     "Software Engineer specializing in React, Next.js, and TypeScript. Building scalable, accessible, and high-performance web applications.",
   keywords: [
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     "Cairo",
     "Egypt",
   ],
-  authors: [{ name: "Amr Samy Ramadan" }],
-  creator: "Amr Samy Ramadan",
+  authors: [{ name: "Amr Samy" }],
+  creator: "Amr Samy",
   metadataBase: new URL("https://amrsamy.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Amr Samy Ramadan | Software Engineer",
+    title: "Amr Samy | Software Engineer",
     description:
       "Software Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
     url: "https://amrsamy.vercel.app",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Samy Ramadan | Software Engineer",
+    title: "Amr Samy | Software Engineer",
     description:
       "Software Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
     creator: "@amrsamy", // Assuming a handle or leave generic
@@ -81,7 +81,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Amr Samy Ramadan",
+              name: "Amr Samy",
               url: "https://amrsamy.vercel.app",
               jobTitle: "Software Engineer",
               sameAs: [

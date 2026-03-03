@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Amr Samy Ramadan — Software Engineer",
+    name: "Amr Samy — Software Engineer",
     short_name: "Amr Samy",
     description:
       "Software Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
