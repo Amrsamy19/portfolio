@@ -3,9 +3,9 @@
 :root {
   --background: #0a0a0b;
   --foreground: #fafafa;
-  --muted: #a78bfa;
-  --accent: #a855f7;
-  --accent-hover: #9333ea;
+  --muted: #c4b5fd;
+  --accent: #c084fc;
+  --accent-hover: #a855f7;
   --card: #141416;
   --border: #27272a;
 }
@@ -18,12 +18,16 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 110%; /* Makes all rem-based sizes ~10% larger */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.6;
   position: relative;
 }
 

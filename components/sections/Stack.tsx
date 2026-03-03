@@ -25,7 +25,7 @@ export function Stack() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col mb-16">
-          <p className="text-[var(--accent)] font-bold tracking-widest text-xs mb-3 uppercase">
+          <p className="text-[var(--accent)] font-bold tracking-[0.2em] text-sm mb-3 uppercase">
             Expertise
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[var(--foreground)]">
@@ -60,7 +60,7 @@ export function Stack() {
                           className="text-[var(--muted)] group-hover/item:text-[var(--accent)] transition-colors duration-300"
                           size={20}
                         />
-                        <span className="text-sm font-medium text-[var(--foreground)] leading-none">
+                        <span className="text-base font-medium text-[var(--foreground)] leading-none">
                           {item}
                         </span>
                       </span>

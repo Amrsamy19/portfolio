@@ -52,16 +52,26 @@ export function Header() {
           </span>
         </a>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="group flex flex-col gap-1.5 w-8 h-8 justify-center items-end cursor-pointer"
-          aria-label="Open menu"
-        >
-          <span className="block w-6 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
-          <span className="block w-5 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
-          <span className="block w-4 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
-        </button>
+        <div className="flex items-center gap-6">
+          <a
+            href="/Amr_Samy_Ramadan_Frontend_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center justify-center border border-[var(--border)] px-4 py-2 text-xs font-bold uppercase tracking-widest text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all rounded-lg"
+          >
+            Resume
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="group flex flex-col gap-1.5 w-8 h-8 justify-center items-end cursor-pointer"
+            aria-label="Open menu"
+          >
+            <span className="block w-6 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
+            <span className="block w-5 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
+            <span className="block w-4 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
+          </button>
+        </div>
       </header>
 
       <AnimatePresence>
@@ -113,7 +123,7 @@ export function Header() {
                 <div className="grid grid-cols-2 gap-8 md:gap-12">
                   {/* Social Column */}
                   <div className="flex flex-col gap-6">
-                    <h3 className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                    <h3 className="text-sm uppercase tracking-widest text-violet-200 font-semibold">
                       Social
                     </h3>
                     <ul className="flex flex-col gap-4">
@@ -124,7 +134,7 @@ export function Header() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setOpen(false)}
-                            className="text-gray-300 hover:text-white transition-colors text-sm md:text-base capitalize"
+                            className="text-gray-200 hover:text-white transition-colors text-base md:text-lg capitalize"
                           >
                             {label}
                           </a>
@@ -135,7 +145,7 @@ export function Header() {
 
                   {/* Menu Column */}
                   <div className="flex flex-col gap-6">
-                    <h3 className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                    <h3 className="text-sm uppercase tracking-widest text-violet-200 font-semibold">
                       Menu
                     </h3>
                     <ul className="flex flex-col gap-4">
@@ -147,7 +157,7 @@ export function Header() {
                             <a
                               href={`#${id}`}
                               onClick={() => setOpen(false)}
-                              className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-base md:text-lg group"
+                              className="flex items-center gap-3 text-gray-200 hover:text-white transition-colors text-lg md:text-xl group"
                             >
                               <span
                                 className={`w-2 h-2 rounded-full ${dotColor} group-hover:scale-125 transition-transform`}
@@ -164,15 +174,25 @@ export function Header() {
 
               {/* Footer */}
               <div className="mt-12">
-                <h3 className="text-xs uppercase tracking-widest text-gray-400 font-medium mb-4">
+                <h3 className="text-sm uppercase tracking-widest text-violet-200 font-semibold mb-4">
                   Get in touch
                 </h3>
-                <a
-                  href="mailto:amrsamy622@gmail.com"
-                  className="text-white hover:text-[var(--accent)] transition-colors text-sm md:text-base"
-                >
-                  amrsamy622@gmail.com
-                </a>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href="mailto:amrsamy622@gmail.com"
+                    className="text-white hover:text-[var(--accent)] transition-colors text-base md:text-lg"
+                  >
+                    amrsamy622@gmail.com
+                  </a>
+                  <a
+                    href="/Amr_Samy_Ramadan_Frontend_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--accent)] hover:text-white transition-colors text-base md:text-lg font-semibold mt-2"
+                  >
+                    View Resume
+                  </a>
+                </div>
               </div>
             </motion.div>
           </>

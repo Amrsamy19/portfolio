@@ -16,7 +16,9 @@ export function Partners() {
       className="px-16 py-24 md:px-24 border-t border-[var(--border)]"
       delayOrder={0}
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted Partners</h2>
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+        Trusted Partners
+      </h2>
       <p className="text-[var(--muted)] mb-12 max-w-xl">
         Collaborations and companies I&apos;ve had the pleasure to work with.
       </p>
@@ -39,7 +41,7 @@ export function Partners() {
                   {partner.name}
                 </h3>
                 {partner.wip && (
-                  <span className="text-xs text-[var(--muted)] mt-1 block">
+                  <span className="text-sm text-[var(--muted)] mt-1 block font-medium">
                     Work in Progress
                   </span>
                 )}

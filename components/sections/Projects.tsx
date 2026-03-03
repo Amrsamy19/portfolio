@@ -30,7 +30,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
               {project.id}
             </span>
             {"freelance" in project && project.freelance && (
-              <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-500 border border-emerald-500/20">
+              <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 border border-emerald-500/30">
                 Freelance
               </span>
             )}
@@ -41,7 +41,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill inline-flex items-center gap-1.5 rounded-lg bg-[var(--accent)]/10 px-3 py-1.5 text-xs font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                className="btn-pill inline-flex items-center gap-1.5 rounded-lg bg-[var(--accent)]/10 px-3 py-1.5 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
               >
                 Live
               </a>
@@ -51,7 +51,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] px-3 py-1.5 text-xs font-medium text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="btn-pill inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm font-medium text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 Repo
               </a>
@@ -68,7 +68,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
             {techs.map((tech) => (
               <span
                 key={tech}
-                className="rounded-md bg-[var(--background)]/80 px-2.5 py-0.5 text-xs text-[var(--muted)] border border-[var(--border)]"
+                className="rounded-md bg-[var(--background)]/80 px-2.5 py-1 text-sm text-[var(--muted)] border border-[var(--border)]"
               >
                 {tech}
               </span>
@@ -80,9 +80,9 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
           {project.bullets.map((b) => (
             <li
               key={b}
-              className="flex items-start gap-2 text-sm text-[var(--muted)]"
+              className="flex items-start gap-2 text-base text-[var(--muted)]"
             >
-              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent)]/60" />
+              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent)]/60" />
               {b}
             </li>
           ))}

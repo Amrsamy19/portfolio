@@ -10,11 +10,11 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Amr Samy Ramadan | Frontend Engineer",
+  title: "Amr Samy Ramadan | Software Engineer",
   description:
-    "Frontend Engineer specializing in React, Next.js, and TypeScript. Building scalable, accessible, and high-performance web applications.",
+    "Software Engineer specializing in React, Next.js, and TypeScript. Building scalable, accessible, and high-performance web applications.",
   keywords: [
-    "Frontend Engineer",
+    "Software Engineer",
     "React Developer",
     "Next.js Developer",
     "TypeScript",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Amr Samy Ramadan | Frontend Engineer",
+    title: "Amr Samy Ramadan | Software Engineer",
     description:
-      "Frontend Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
+      "Software Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
     url: "https://amrsamy.vercel.app",
     siteName: "Amr Samy Portfolio",
     locale: "en_US",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Samy Ramadan | Frontend Engineer",
+    title: "Amr Samy Ramadan | Software Engineer",
     description:
-      "Frontend Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
+      "Software Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
     creator: "@amrsamy", // Assuming a handle or leave generic
   },
   robots: {
@@ -67,8 +67,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { Preloader } from "@/components/ui/Preloader";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -85,17 +83,16 @@ export default function RootLayout({
               "@type": "Person",
               name: "Amr Samy Ramadan",
               url: "https://amrsamy.vercel.app",
-              jobTitle: "Frontend Engineer",
+              jobTitle: "Software Engineer",
               sameAs: [
                 "https://github.com/amrsamy",
                 "https://linkedin.com/in/amrsamy",
               ],
               description:
-                "Frontend Engineer focused on building scalable, accessible, and high-performance web applications with React, Next.js, and TypeScript.",
+                "Software Engineer focused on building scalable, accessible, and high-performance web applications with React, Next.js, and TypeScript.",
             }),
           }}
         />
-        <Preloader />
         {children}
       </body>
     </html>

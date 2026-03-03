@@ -17,7 +17,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="btn-primary mt-2 w-full sm:w-auto inline-flex items-center justify-center bg-[var(--accent)] px-8 py-4 text-sm font-semibold uppercase tracking-wider text-[var(--background)] hover:bg-[var(--accent-hover)] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+      className="btn-primary mt-2 w-full sm:w-auto inline-flex items-center justify-center bg-[var(--accent)] px-8 py-4 text-base font-semibold uppercase tracking-wider text-[var(--background)] hover:bg-[var(--accent-hover)] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
     >
       {pending ? "Sending…" : "Send message"}
     </button>
@@ -43,7 +43,7 @@ export function Contact() {
       <form action={formAction} className="max-w-xl space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <label className="block">
-            <span className="block text-sm font-medium text-[var(--foreground)] mb-2">
+            <span className="block text-base font-medium text-[var(--foreground)] mb-2">
               Name
             </span>
             <input
@@ -55,7 +55,7 @@ export function Contact() {
             />
           </label>
           <label className="block">
-            <span className="block text-sm font-medium text-[var(--foreground)] mb-2">
+            <span className="block text-base font-medium text-[var(--foreground)] mb-2">
               Email
             </span>
             <input
@@ -69,7 +69,7 @@ export function Contact() {
         </div>
 
         <label className="block">
-          <span className="block text-sm font-medium text-[var(--foreground)] mb-2">
+          <span className="block text-base font-medium text-[var(--foreground)] mb-2">
             Subject
           </span>
           <input
@@ -81,7 +81,7 @@ export function Contact() {
         </label>
 
         <label className="block">
-          <span className="block text-sm font-medium text-[var(--foreground)] mb-2">
+          <span className="block text-base font-medium text-[var(--foreground)] mb-2">
             Message
           </span>
           <textarea
@@ -106,7 +106,7 @@ export function Contact() {
         <SubmitButton />
       </form>
 
-      <p className="mt-8 text-sm text-[var(--muted)]">
+      <p className="mt-8 text-base text-[var(--muted)]">
         Or email directly:{" "}
         <a
           href="mailto:amrsamy622@gmail.com"

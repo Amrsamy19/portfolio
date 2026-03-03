@@ -40,7 +40,7 @@ export function Sidebar() {
           }
         }
       },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 },
     );
 
     sectionIds.forEach((id) => {
@@ -70,7 +70,7 @@ export function Sidebar() {
 
       <div className="mb-12">
         <motion.p
-          className="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)] mb-4"
+          className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-4 font-semibold"
           variants={itemVariants}
           custom={1}
         >
@@ -83,7 +83,7 @@ export function Sidebar() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
+                className="text-base text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
               >
                 {label.toLowerCase()}
               </a>
@@ -94,7 +94,7 @@ export function Sidebar() {
 
       <nav className="mb-12">
         <motion.p
-          className="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)] mb-4"
+          className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-4 font-semibold"
           variants={itemVariants}
           custom={4}
         >
@@ -105,9 +105,9 @@ export function Sidebar() {
             <motion.li key={id} variants={itemVariants} custom={5 + i}>
               <a
                 href={`#${id}`}
-                className={`text-sm transition-colors ${
+                className={`text-base transition-colors ${
                   activeId === id
-                    ? "text-[var(--accent)] font-medium"
+                    ? "text-[var(--accent)] font-semibold"
                     : "text-[var(--foreground)] hover:text-[var(--accent)]"
                 }`}
               >
@@ -118,20 +118,26 @@ export function Sidebar() {
         </ul>
       </nav>
 
-      <motion.div
-        className="mt-auto"
-        variants={itemVariants}
-        custom={9}
-      >
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)] mb-4">
+      <motion.div className="mt-auto" variants={itemVariants} custom={9}>
+        <p className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-4 font-semibold">
           Get in touch
         </p>
-        <a
-          href="mailto:amrsamy622@gmail.com"
-          className="text-sm text-[var(--foreground)] hover:text-[var(--accent)] transition-colors break-all"
-        >
-          amrsamy622@gmail.com
-        </a>
+        <div className="flex flex-col gap-3">
+          <a
+            href="mailto:amrsamy622@gmail.com"
+            className="text-base text-[var(--foreground)] hover:text-[var(--accent)] transition-colors break-all"
+          >
+            amrsamy622@gmail.com
+          </a>
+          <a
+            href="/Amr_Samy_Ramadan_Frontend_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base text-[var(--accent)] hover:text-white transition-colors font-semibold"
+          >
+            View Resume
+          </a>
+        </div>
       </motion.div>
     </motion.aside>
   );
