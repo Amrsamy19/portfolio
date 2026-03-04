@@ -25,12 +25,6 @@ export function About() {
             authentication flows, and integrating REST APIs in real-world SaaS
             and dashboard environments.
           </p>
-          <p>
-            I&apos;m particularly interested in building scalable frontend
-            architectures and authenticated admin dashboards. I focus on
-            performance, accessibility, and responsiveness to deliver
-            experiences that meet both user needs and business objectives.
-          </p>
         </div>
       </div>
     </AnimatedSection>
