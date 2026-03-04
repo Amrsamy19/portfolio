@@ -100,17 +100,22 @@ export function Projects() {
       className="px-6 py-24 md:px-24 border-t border-[var(--border)]"
       delayOrder={0}
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Selected Projects</h2>
-      <p className="text-[var(--muted)] mb-12 max-w-xl">
-        A few things I&apos;ve built with React, Next.js, and modern web tools.
-      </p>
-      <StaggerContainer className="grid gap-6 md:gap-8" staggerDelay={0.08}>
-        {PROJECTS.map((project) => (
-          <StaggerItem key={project.name}>
-            <ProjectCard project={project} />
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Selected Projects
+        </h2>
+        <p className="text-[var(--muted)] mb-12 max-w-xl">
+          A few things I&apos;ve built with React, Next.js, and modern web
+          tools.
+        </p>
+        <StaggerContainer className="grid gap-6 md:gap-8" staggerDelay={0.08}>
+          {PROJECTS.map((project) => (
+            <StaggerItem key={project.name}>
+              <ProjectCard project={project} />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
     </AnimatedSection>
   );
 }
