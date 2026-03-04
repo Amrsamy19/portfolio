@@ -7,7 +7,7 @@ export function About() {
     <AnimatedSection
       as="section"
       id="about"
-      className="px-16 py-24 md:px-24 border-t border-[var(--border)]"
+      className="px-6 py-24 md:px-24 border-t border-[var(--border)]"
       delayOrder={0}
     >
       <div className="max-w-3xl mx-auto text-center">

@@ -31,7 +31,7 @@ export function Contact() {
     <AnimatedSection
       as="section"
       id="contact"
-      className="px-16 py-24 md:px-24 border-t border-[var(--border)]"
+      className="px-6 py-24 md:px-24 border-t border-[var(--border)]"
       delayOrder={0}
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in touch</h2>

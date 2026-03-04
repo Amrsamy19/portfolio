@@ -20,7 +20,7 @@ export function Stack() {
     <AnimatedSection
       as="section"
       id="skills"
-      className="px-8 py-24 md:px-24 border-t border-[var(--border)] overflow-hidden"
+      className="px-6 py-24 md:px-24 border-t border-[var(--border)] overflow-hidden"
       delayOrder={0}
     >
       <div className="max-w-7xl mx-auto">

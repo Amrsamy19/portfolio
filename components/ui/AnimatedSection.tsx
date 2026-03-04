@@ -50,7 +50,7 @@ export function AnimatedSection({
       ? { animate: "visible" as const }
       : {
           whileInView: "visible" as const,
-          viewport: { once: true, amount: 0.2, margin: "0px 0px -80px 0px" },
+          viewport: { once: true, amount: 0.05, margin: "0px 0px -20px 0px" },
         }),
   };
   if (Tag === "section") {
@@ -96,7 +96,7 @@ export function StaggerContainer({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px -20px 0px" }}
       variants={containerVariants}
       custom={staggerDelay}
     >

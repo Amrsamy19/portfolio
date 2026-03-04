@@ -8,7 +8,7 @@ export function Hero() {
     <AnimatedSection
       as="section"
       id="home"
-      className="min-h-screen flex flex-col justify-center px-8 pt-24 pb-16 md:px-24 relative"
+      className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 md:px-24 relative"
       delayOrder={0}
       animateOnMount
     >
@@ -22,7 +22,7 @@ export function Hero() {
             transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
           >
             <span className="text-[var(--accent)]">AMR SAMY</span>
-            <br />  
+            <br />
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl text-[var(--muted)] mb-12 leading-relaxed max-w-2xl mx-auto"
