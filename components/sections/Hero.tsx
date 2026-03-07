@@ -50,7 +50,7 @@ export function Hero() {
               Hire Me
             </a>
             <a
-              href="/Amr_Samy_Ramadan_Frontend_CV.pdf"
+              href="/Amr_Samy_Ramadan_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary inline-flex items-center justify-center border border-[var(--border)] px-8 py-4 text-base font-semibold uppercase tracking-wider text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"

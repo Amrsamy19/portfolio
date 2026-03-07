@@ -54,7 +54,7 @@ export function Header() {
 
         <div className="flex items-center gap-6">
           <a
-            href="/Amr_Samy_Ramadan_Frontend_CV.pdf"
+            href="/Amr_Samy_Ramadan_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center justify-center border border-[var(--border)] px-4 py-2 text-xs font-bold uppercase tracking-widest text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all rounded-lg"
@@ -185,7 +185,7 @@ export function Header() {
                     amrsamy622@gmail.com
                   </a>
                   <a
-                    href="/Amr_Samy_Ramadan_Frontend_CV.pdf"
+                    href="/Amr_Samy_Ramadan_CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[var(--accent)] hover:text-white transition-colors text-base md:text-lg font-semibold mt-2"
