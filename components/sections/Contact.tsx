@@ -1,32 +1,9 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
-import { useFormStatus } from "react-dom";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { sendEmail, type SendEmailState } from "@/app/actions/send-email";
-
-const initialState: SendEmailState = {
-  success: false,
-  message: "",
-};
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="btn-primary mt-2 w-full sm:w-auto inline-flex items-center justify-center bg-[var(--accent)] px-8 py-4 text-base font-semibold uppercase tracking-wider text-[var(--background)] hover:bg-[var(--accent-hover)] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
-    >
-      {pending ? "Sending…" : "Send message"}
-    </button>
-  );
-}
+import { SOCIAL } from "@/app/data/social";
 
 export function Contact() {
-  const [state, formAction] = useActionState(sendEmail, initialState);
-
   return (
     <AnimatedSection
       as="section"
@@ -36,86 +13,44 @@ export function Contact() {
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in touch</h2>
-        <p className="text-[var(--muted)] mb-10 max-w-xl">
-          Have a project in mind or want to say hi? Send me a message and
-          I&apos;ll get back to you.
+        <p className="text-[var(--muted)] mb-12 max-w-xl text-lg">
+          I&apos;m always open to new opportunities, collaborations, or just a
+          friendly chat. Feel free to reach out through any of the platforms
+          below.
         </p>
 
-        <form action={formAction} className="max-w-xl space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <label className="block">
-              <span className="block text-base font-medium text-[var(--foreground)] mb-2">
-                Name
-              </span>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Your name"
-                className="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] transition-colors"
-              />
-            </label>
-            <label className="block">
-              <span className="block text-base font-medium text-[var(--foreground)] mb-2">
-                Email
-              </span>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="you@example.com"
-                className="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] transition-colors"
-              />
-            </label>
-          </div>
-
-          <label className="block">
-            <span className="block text-base font-medium text-[var(--foreground)] mb-2">
-              Subject
-            </span>
-            <input
-              type="text"
-              name="subject"
-              placeholder="Project inquiry, collaboration, etc."
-              className="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] transition-colors"
-            />
-          </label>
-
-          <label className="block">
-            <span className="block text-base font-medium text-[var(--foreground)] mb-2">
-              Message
-            </span>
-            <textarea
-              name="message"
-              required
-              rows={5}
-              placeholder="Your message…"
-              className="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] transition-colors resize-y min-h-[120px]"
-            />
-          </label>
-
-          {state.message && (
-            <p
-              className={`text-sm ${
-                state.success ? "text-[var(--accent)]" : "text-red-400"
-              }`}
-            >
-              {state.message}
-            </p>
-          )}
-
-          <SubmitButton />
-        </form>
-
-        <p className="mt-8 text-base text-[var(--muted)]">
-          Or email directly:{" "}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
+          {/* Email Card */}
           <a
             href="mailto:amrsamy622@gmail.com"
-            className="link-hover text-[var(--accent)] hover:text-[var(--accent)]"
+            className="group block p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] card-hover hover:border-[var(--accent)]/50"
           >
-            amrsamy622@gmail.com
+            <p className="text-sm font-medium text-[var(--muted)] mb-1 uppercase tracking-wider">
+              Email
+            </p>
+            <p className="text-xl font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+              amrsamy622@gmail.com
+            </p>
           </a>
-        </p>
+
+          {/* Social Links */}
+          {SOCIAL.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] card-hover hover:border-[var(--accent)]/50"
+            >
+              <p className="text-sm font-medium text-[var(--muted)] mb-1 uppercase tracking-wider">
+                {link.label}
+              </p>
+              <p className="text-xl font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+                @{link.href.split("/").pop()}
+              </p>
+            </a>
+          ))}
+        </div>
       </div>
     </AnimatedSection>
   );

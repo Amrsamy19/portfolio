@@ -1,6 +1,21 @@
 export const PROJECTS = [
   {
     id: "01",
+    name: "Salaty",
+    freelance: false,
+    description: "Modern Islamic Prayer App — React Native, Expo, NativeWind, Zustand",
+    bullets: [
+      "Developed a full-featured prayer times application with real-time GPS calculations using Aladhan API",
+      "Implemented a multilingual interface (English & Arabic) with dynamic RTL support and localization",
+      "Built a daily prayer tracker with data visualization to help users monitor their spiritual progress",
+      "Engineered a robust notification system for Adhan alerts with customizable alert settings",
+      "Designed a premium, high-performance adaptive UI with dark mode support using NativeWind",
+    ],
+    live: null,
+    repo: "https://github.com/Amrsamy19/Salaty",
+  },
+  {
+    id: "02",
     name: "Hawash Law",
     freelance: true,
     description:
@@ -15,7 +30,7 @@ export const PROJECTS = [
     repo: null,
   },
   {
-    id: "02",
+    id: "03",
     name: "Jawla",
     freelance: true,
     description:
@@ -30,7 +45,7 @@ export const PROJECTS = [
     repo: "https://github.com/Mo-metwally/jawla-admin",
   },
   {
-    id: "03",
+    id: "04",
     name: "EcoSphere",
     freelance: false,
     description:
@@ -46,7 +61,7 @@ export const PROJECTS = [
     repo: null,
   },
   {
-    id: "04",
+    id: "05",
     name: "Plastikat Admin Dashboard",
     freelance: false,
     description: "React, TypeScript, Tailwind CSS, Auth0",
