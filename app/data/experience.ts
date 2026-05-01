@@ -1,5 +1,11 @@
 export const EXPERIENCE = [
   {
+  company: "EngTechno",
+  role: "Full Stack Developer (Internship)",
+  period: "April 2026 – Present",
+  location: "Cairo, Egypt",
+  },
+  {
     company: "Information Technology Institute (ITI)",
     role: "Full Stack Development (MERN)",
     period: "July 2025 – November 2025",
