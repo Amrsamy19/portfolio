@@ -1,7 +1,7 @@
 export const EXPERIENCE = [
   {
     company: "EngTechno",
-    role: "Full Stack Developer (Internship)",
+    role: "Full Stack Developer",
     period: "April 2026 – Present",
     location: "Cairo, Egypt",
     logo: "/engtechno.jpg",

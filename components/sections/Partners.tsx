@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -13,13 +12,13 @@ export function Partners() {
     <AnimatedSection
       as="section"
       id="partners"
-      className="px-16 py-24 md:px-24 border-t border-[var(--border)]"
+      className="px-16 py-24 md:px-24 border-t border-(--border)"
       delayOrder={0}
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
         Trusted Partners
       </h2>
-      <p className="text-[var(--muted)] mb-12 max-w-xl">
+      <p className="text-(--muted) mb-12 max-w-xl">
         Collaborations and companies I&apos;ve had the pleasure to work with.
       </p>
 
@@ -33,15 +32,15 @@ export function Partners() {
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-center justify-center p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors duration-300 aspect-[3/2]"
+              className="group flex flex-col items-center justify-center p-6 rounded-2xl border border-(--border) bg-(--card) hover:border-(--accent) transition-colors duration-300 aspect-3/2"
             >
               {/* Fallback to text if no logo, or wrap logo in image tag if you add images later */}
               <div className="text-center">
-                <h3 className="font-bold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+                <h3 className="font-bold text-foreground group-hover:text-(--accent) transition-colors">
                   {partner.name}
                 </h3>
                 {partner.wip && (
-                  <span className="text-sm text-[var(--muted)] mt-1 block font-medium">
+                  <span className="text-sm text-(--muted) mt-1 block font-medium">
                     Work in Progress
                   </span>
                 )}

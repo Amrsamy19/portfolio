@@ -19,14 +19,14 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
     .filter(Boolean);
 
   return (
-    <motion.article className="group relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] card-hover">
+    <motion.article className="group relative overflow-hidden rounded-2xl border border-(--border) bg-(--card) card-hover">
       {/* Accent bar on hover */}
-      <span className="absolute left-0 top-0 h-full w-1 bg-[var(--accent)] opacity-0 scale-y-0 origin-top transition-[transform,opacity] duration-300 group-hover:opacity-100 group-hover:scale-y-100 rounded-l-2xl" />
+      <span className="absolute left-0 top-0 h-full w-1 bg-(--accent) opacity-0 scale-y-0 origin-top transition-[transform,opacity] duration-300 group-hover:opacity-100 group-hover:scale-y-100 rounded-l-2xl" />
 
       <div className="p-6 md:p-8 pl-7 md:pl-9">
         <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/15 text-sm font-bold text-[var(--accent)]">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-(--accent)/15 text-sm font-bold text-(--accent)">
               {project.id}
             </span>
             {"freelance" in project && project.freelance && (
@@ -41,7 +41,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill inline-flex items-center gap-1.5 rounded-lg bg-[var(--accent)]/10 px-3 py-1.5 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                className="btn-pill inline-flex items-center gap-1.5 rounded-lg bg-(--accent)/10 px-3 py-1.5 text-sm font-medium text-(--accent) hover:bg-(--accent) hover:text-background"
               >
                 Live
               </a>
@@ -51,7 +51,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm font-medium text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="btn-pill inline-flex items-center gap-1.5 rounded-lg border border-(--border) px-3 py-1.5 text-sm font-medium text-foreground hover:border-(--accent) hover:text-(--accent)"
               >
                 Repo
               </a>
@@ -59,7 +59,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
           </div>
         </div>
 
-        <h3 className="text-xl md:text-2xl font-bold text-[var(--foreground)] mb-2">
+        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
           {project.name}
         </h3>
 
@@ -68,7 +68,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
             {techs.map((tech) => (
               <span
                 key={tech}
-                className="rounded-md bg-[var(--background)]/80 px-2.5 py-1 text-sm text-[var(--muted)] border border-[var(--border)]"
+                className="rounded-md bg-(--background)/80 px-2.5 py-1 text-sm text-(--muted) border border-(--border)"
               >
                 {tech}
               </span>
@@ -80,9 +80,9 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
           {project.bullets.map((b) => (
             <li
               key={b}
-              className="flex items-start gap-2 text-base text-[var(--muted)]"
+              className="flex items-start gap-2 text-base text-(--muted)"
             >
-              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent)]/60" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-(--accent)/60" />
               {b}
             </li>
           ))}
@@ -97,14 +97,14 @@ export function Projects() {
     <AnimatedSection
       as="section"
       id="projects"
-      className="px-6 py-24 md:px-24 border-t border-[var(--border)]"
+      className="px-6 py-24 md:px-24 border-t border-(--border)"
       delayOrder={0}
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Selected Projects
         </h2>
-        <p className="text-[var(--muted)] mb-12 max-w-xl">
+        <p className="text-(--muted) mb-12 max-w-xl">
           A few things I&apos;ve built with React, Next.js, and modern web
           tools.
         </p>

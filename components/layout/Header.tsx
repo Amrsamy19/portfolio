@@ -40,7 +40,7 @@ export function Header() {
         }`}
       >
         <a href="#home" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-[var(--card)] border border-[var(--border)] group-hover:border-[var(--accent)] transition-all duration-300 shadow-lg">
+          <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-(--card) border border-(--border) group-hover:border-(--accent) transition-all duration-300 shadow-lg">
             <img
               src="/logo.png"
               alt="Amr Samy"
@@ -48,7 +48,7 @@ export function Header() {
             />
           </div>
           <span className="font-bold text-lg tracking-tight hidden sm:block">
-            AMR<span className="text-[var(--accent)]">SAMY</span>
+            AMR<span className="text-(--accent)">SAMY</span>
           </span>
         </a>
 
@@ -57,7 +57,7 @@ export function Header() {
             href="/Amr_Samy_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center justify-center border border-[var(--border)] px-4 py-2 text-xs font-bold uppercase tracking-widest text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all rounded-lg"
+            className="hidden sm:inline-flex items-center justify-center border border-(--border) px-4 py-2 text-xs font-bold uppercase tracking-widest text-foreground hover:border-(--accent) hover:text-(--accent) transition-all rounded-lg"
           >
             Resume
           </a>
@@ -67,9 +67,9 @@ export function Header() {
             className="group flex flex-col gap-1.5 w-8 h-8 justify-center items-end cursor-pointer"
             aria-label="Open menu"
           >
-            <span className="block w-6 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
-            <span className="block w-5 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
-            <span className="block w-4 h-0.5 bg-[var(--foreground)] group-hover:bg-[var(--accent)] transition-colors duration-200" />
+            <span className="block w-6 h-0.5 bg-foreground group-hover:bg-(--accent) transition-colors duration-200" />
+            <span className="block w-5 h-0.5 bg-foreground group-hover:bg-(--accent) transition-colors duration-200" />
+            <span className="block w-4 h-0.5 bg-foreground group-hover:bg-(--accent) transition-colors duration-200" />
           </button>
         </div>
       </header>
@@ -79,7 +79,7 @@ export function Header() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm"
+              className="fixed inset-0 bg-black/60 z-60 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -89,7 +89,7 @@ export function Header() {
 
             {/* Sidebar */}
             <motion.div
-              className="fixed top-0 right-0 h-full w-full md:w-[480px] bg-[#1a1a1a] z-[70] p-8 md:p-12 shadow-2xl flex flex-col justify-between overflow-y-auto"
+              className="fixed top-0 right-0 h-full w-full md:w-120 bg-[#1a1a1a] z-70 p-8 md:p-12 shadow-2xl flex flex-col justify-between overflow-y-auto"
               initial={{ x: "100%" }}
               animate={{ x: "0%" }}
               exit={{ x: "100%" }}
@@ -99,7 +99,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="absolute top-6 right-6 md:top-8 md:right-8 text-white hover:text-[var(--accent)] transition-colors"
+                className="absolute top-6 right-6 md:top-8 md:right-8 text-white hover:text-(--accent) transition-colors"
                 aria-label="Close menu"
               >
                 <svg
@@ -180,7 +180,7 @@ export function Header() {
                 <div className="flex flex-col gap-2">
                   <a
                     href="mailto:amrsamy622@gmail.com"
-                    className="text-white hover:text-[var(--accent)] transition-colors text-base md:text-lg"
+                    className="text-white hover:text-(--accent) transition-colors text-base md:text-lg"
                   >
                     amrsamy622@gmail.com
                   </a>
@@ -188,7 +188,7 @@ export function Header() {
                     href="/Amr_Samy_CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--accent)] hover:text-white transition-colors text-base md:text-lg font-semibold mt-2"
+                    className="text-(--accent) hover:text-white transition-colors text-base md:text-lg font-semibold mt-2"
                   >
                     View Resume
                   </a>

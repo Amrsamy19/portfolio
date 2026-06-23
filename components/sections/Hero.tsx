@@ -21,17 +21,17 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
           >
-            <span className="text-[var(--accent)]">AMR SAMY</span>
+            <span className="text-(--accent)">AMR SAMY</span>
             <br />
           </motion.h1>
           <motion.p
-            className="text-xl md:text-2xl text-[var(--muted)] mb-12 leading-relaxed max-w-2xl mx-auto"
+            className="text-xl md:text-2xl text-(--muted) mb-12 leading-relaxed max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.45, ease: "easeOut" }}
           >
             A{" "}
-            <strong className="text-[var(--foreground)] inline-block">
+            <strong className="text-foreground inline-block">
               Software Engineer
             </strong>{" "}
             focused on building scalable, accessible, and responsive web
@@ -45,7 +45,7 @@ export function Hero() {
           >
             <a
               href="mailto:amrsamy622@gmail.com"
-              className="btn-primary inline-flex items-center justify-center bg-[var(--accent)] px-8 py-4 text-base font-semibold uppercase tracking-wider text-[var(--background)] hover:bg-[var(--accent-hover)] transition-colors"
+              className="btn-primary inline-flex items-center justify-center bg-(--accent) px-8 py-4 text-base font-semibold uppercase tracking-wider text-background hover:bg-(--accent-hover) transition-colors"
             >
               Hire Me
             </a>
@@ -53,7 +53,7 @@ export function Hero() {
               href="/Amr_Samy_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary inline-flex items-center justify-center border border-[var(--border)] px-8 py-4 text-base font-semibold uppercase tracking-wider text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
+              className="btn-secondary inline-flex items-center justify-center border border-(--border) px-8 py-4 text-base font-semibold uppercase tracking-wider text-foreground hover:border-(--accent) hover:text-(--accent) transition-all"
             >
               Resume
             </a>

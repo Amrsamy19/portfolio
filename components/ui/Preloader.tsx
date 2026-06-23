@@ -30,7 +30,7 @@ export function Preloader() {
             y: "-100%",
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--background)]"
+          className="fixed inset-0 z-9999 flex items-center justify-center bg-background"
         >
           <div className="relative overflow-hidden">
             <motion.h1
@@ -45,9 +45,9 @@ export function Preloader() {
                 y: -20,
                 transition: { duration: 0.4, ease: "easeIn" },
               }}
-              className="text-4xl md:text-6xl font-bold tracking-tight text-[var(--foreground)]"
+              className="text-4xl md:text-6xl font-bold tracking-tight text-foreground"
             >
-              Amr Samy<span className="text-[var(--accent)]">.</span>
+              Amr Samy<span className="text-(--accent)">.</span>
             </motion.h1>
 
             {/* Animated underline */}
@@ -57,13 +57,13 @@ export function Preloader() {
                 scaleX: 1,
                 transition: { delay: 0.4, duration: 0.8, ease: "easeInOut" },
               }}
-              className="mt-4 h-1 w-full bg-[var(--accent)] origin-left"
+              className="mt-4 h-1 w-full bg-(--accent) origin-left"
             />
           </div>
 
           {/* Background decoration */}
           <div className="absolute inset-0 -z-10 opacity-20">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--accent)] blur-[120px] rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-(--accent) blur-[120px] rounded-full" />
           </div>
         </motion.div>
       )}

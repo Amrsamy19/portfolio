@@ -29,7 +29,7 @@ export function FloatingIcons() {
         return (
           <motion.div
             key={i}
-            className="absolute text-[var(--muted)] opacity-[0.03]"
+            className="absolute text-(--muted) opacity-[0.03]"
             style={{
               left: `${initialX}%`,
               top: `${initialY}%`,

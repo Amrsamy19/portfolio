@@ -13,13 +13,13 @@ export function Experience() {
     <AnimatedSection
       as="section"
       id="experience"
-      className="px-6 py-24 md:px-24 border-t border-[var(--border)]"
+      className="px-6 py-24 md:px-24 border-t border-(--border)"
       delayOrder={0}
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-12">My Experience</h2>
         <StaggerContainer
-          className="divide-y divide-[var(--border)]"
+          className="divide-y divide-(--border)"
           staggerDelay={0.12}
         >
           {EXPERIENCE.map(({ company, role, period, location, logo }) => (
@@ -28,7 +28,7 @@ export function Experience() {
               className="group -mx-3 flex flex-col gap-2 rounded-xl px-3 py-6 transition-colors duration-300 hover:bg-white/5 md:flex-row md:items-baseline md:justify-between"
             >
               <div className="flex items-start gap-4">
-                <div className="relative h-12 w-12 shrink-0 rounded-md bg-white/90 p-1 sm:h-[52px] sm:w-[52px] md:h-14 md:w-14">
+                <div className="relative h-12 w-12 shrink-0 rounded-md bg-white/90 p-1 sm:h-13 sm:w-13 md:h-14 md:w-14">
                     <Image
                       src={logo}
                       alt={`${company} logo`}
@@ -41,12 +41,12 @@ export function Experience() {
                   <h3 className="text-xl font-semibold md:text-[1.35rem]">
                     {company}
                   </h3>
-                  <p className="text-[var(--accent)] text-base font-medium">
+                  <p className="text-(--accent) text-base font-medium">
                     {role}
                   </p>
                 </div>
               </div>
-              <div className="text-sm text-[var(--muted)]/80 md:text-right md:text-base">
+              <div className="text-sm text-(--muted)/80 md:text-right md:text-base">
                 <p>{period}</p>
                 <p>{location}</p>
               </div>

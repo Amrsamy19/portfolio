@@ -12,23 +12,12 @@ const defaultVariants: Variants = {
   }),
 };
 
-const motionProps = (delayOrder: number, className: string, id?: string) => ({
-  id,
-  className,
-  initial: "hidden" as const,
-  whileInView: "visible" as const,
-  viewport: { once: true, amount: 0.2, margin: "0px 0px -80px 0px" },
-  variants: defaultVariants,
-  custom: delayOrder,
-});
-
 type AnimatedSectionProps = {
   children: React.ReactNode;
   className?: string;
   delayOrder?: number;
   as?: "section" | "div" | "footer";
   id?: string;
-  /** When true, animate on mount instead of when in view (for above-the-fold sections) */
   animateOnMount?: boolean;
 };
 

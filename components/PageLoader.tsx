@@ -15,7 +15,7 @@ export function PageLoader() {
     <AnimatePresence mode="wait">
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[var(--background)]"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-background"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -27,7 +27,7 @@ export function PageLoader() {
             transition={{ duration: 0.4, delay: 0.15 }}
           >
             <motion.span
-              className="text-4xl font-bold tracking-tight text-[var(--foreground)]"
+              className="text-4xl font-bold tracking-tight text-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.25 }}
@@ -35,7 +35,7 @@ export function PageLoader() {
               AMR SAMY
             </motion.span>
             <motion.div
-              className="h-0.5 w-16 rounded-full bg-[var(--accent)]"
+              className="h-0.5 w-16 rounded-full bg-(--accent)"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}

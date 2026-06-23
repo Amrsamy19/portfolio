@@ -53,7 +53,7 @@ export function Sidebar() {
 
   return (
     <motion.aside
-      className="fixed left-0 top-0 z-50 flex h-full w-[280px] flex-col border-r border-[var(--border)] bg-[var(--background)]/95 backdrop-blur px-8 py-12"
+      className="fixed left-0 top-0 z-50 flex h-full w-70 flex-col border-r border-(--border) bg-(--background)/95 backdrop-blur px-8 py-12"
       initial="hidden"
       animate="visible"
       variants={sidebarVariants}
@@ -61,7 +61,7 @@ export function Sidebar() {
       {/* Brand / name at top like Tajmirul */}
       <motion.a
         href="#home"
-        className="mb-12 block text-xl font-bold tracking-tight text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
+        className="mb-12 block text-xl font-bold tracking-tight text-foreground hover:text-(--accent) transition-colors"
         variants={itemVariants}
         custom={0}
       >
@@ -70,7 +70,7 @@ export function Sidebar() {
 
       <div className="mb-12">
         <motion.p
-          className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-4 font-semibold"
+          className="text-xs uppercase tracking-[0.25em] text-(--muted) mb-4 font-semibold"
           variants={itemVariants}
           custom={1}
         >
@@ -83,7 +83,7 @@ export function Sidebar() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
+                className="text-base text-foreground hover:text-(--accent) transition-colors"
               >
                 {label.toLowerCase()}
               </a>
@@ -94,7 +94,7 @@ export function Sidebar() {
 
       <nav className="mb-12">
         <motion.p
-          className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-4 font-semibold"
+          className="text-xs uppercase tracking-[0.25em] text-(--muted) mb-4 font-semibold"
           variants={itemVariants}
           custom={4}
         >
@@ -107,8 +107,8 @@ export function Sidebar() {
                 href={`#${id}`}
                 className={`text-base transition-colors ${
                   activeId === id
-                    ? "text-[var(--accent)] font-semibold"
-                    : "text-[var(--foreground)] hover:text-[var(--accent)]"
+                    ? "text-(--accent) font-semibold"
+                    : "text-foreground hover:text-(--accent)"
                 }`}
               >
                 {label}
@@ -119,13 +119,13 @@ export function Sidebar() {
       </nav>
 
       <motion.div className="mt-auto" variants={itemVariants} custom={9}>
-        <p className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-4 font-semibold">
+        <p className="text-xs uppercase tracking-[0.25em] text-(--muted) mb-4 font-semibold">
           Get in touch
         </p>
         <div className="flex flex-col gap-3">
           <a
             href="mailto:amrsamy622@gmail.com"
-            className="text-base text-[var(--foreground)] hover:text-[var(--accent)] transition-colors break-all"
+            className="text-base text-foreground hover:text-(--accent) transition-colors break-all"
           >
             amrsamy622@gmail.com
           </a>
@@ -133,7 +133,7 @@ export function Sidebar() {
             href="/Amr_Samy_Ramadan_Frontend_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base text-[var(--accent)] hover:text-white transition-colors font-semibold"
+            className="text-base text-(--accent) hover:text-white transition-colors font-semibold"
           >
             View Resume
           </a>
