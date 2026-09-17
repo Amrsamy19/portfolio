@@ -10,7 +10,7 @@ import { PROJECTS } from "@/app/data";
 
 function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
   const hasSubtitle = project.description.includes("—");
-  const [subtitle, techPart] = hasSubtitle
+  const [, techPart] = hasSubtitle
     ? project.description.split("—").map((s) => s.trim())
     : ["", project.description];
   const techs = (techPart ?? "")

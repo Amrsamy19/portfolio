@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { SECTIONS } from "@/app/data/sections";
 import { SOCIAL } from "@/app/data/social";
 
@@ -41,10 +42,11 @@ export function Header() {
       >
         <a href="#home" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-(--card) border border-(--border) group-hover:border-(--accent) transition-all duration-300 shadow-lg">
-            <img
+            <Image
               src="/logo.png"
               alt="Amr Samy"
-              className="w-full h-full object-cover p-1 group-hover:scale-110 transition-transform duration-300"
+              fill
+              className="object-cover p-1 group-hover:scale-110 transition-transform duration-300"
             />
           </div>
           <span className="font-bold text-lg tracking-tight hidden sm:block">

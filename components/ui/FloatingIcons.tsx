@@ -10,8 +10,31 @@ const ICONS = Object.values(STACK).flat();
 
 export function FloatingIcons() {
   const [isMounted, setIsMounted] = useState(false);
+  const [iconData, setIconData] = useState<
+    Array<{
+      icon: string;
+      size: number;
+      initialX: number;
+      initialY: number;
+      duration: number;
+      animX: number[];
+      animY: number[];
+    }>
+  >([]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIconData(
+      ICONS.map((icon) => ({
+        icon,
+        size: Math.random() * 30 + 30,
+        initialX: Math.random() * 100,
+        initialY: Math.random() * 100,
+        duration: Math.random() * 20 + 20,
+        animX: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+        animY: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+      }))
+    );
     setIsMounted(true);
   }, []);
 
@@ -19,33 +42,29 @@ export function FloatingIcons() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {ICONS.map((icon, i) => {
-        const Icon = getStackIcon(icon);
-        const size = Math.random() * 30 + 30; // 30px to 60px
-        const initialX = Math.random() * 100;
-        const initialY = Math.random() * 100;
-        const duration = Math.random() * 20 + 20; // 20s to 40s
-
+      {iconData.map((data, i) => {
+        const Icon = getStackIcon(data.icon);
+        
         return (
           <motion.div
             key={i}
             className="absolute text-(--muted) opacity-[0.03]"
             style={{
-              left: `${initialX}%`,
-              top: `${initialY}%`,
+              left: `${data.initialX}%`,
+              top: `${data.initialY}%`,
             }}
             animate={{
-              x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
-              y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+              x: data.animX,
+              y: data.animY,
               rotate: [0, 360],
             }}
             transition={{
-              duration: duration,
+              duration: data.duration,
               repeat: Infinity,
               ease: "linear",
             }}
           >
-            <Icon size={size} />
+            <Icon size={data.size} />
           </motion.div>
         );
       })}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import { getCmsData } from "@/lib/cms/api";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     title: "Amr Samy | Software Engineer",
     description:
       "Software Engineer focused on building scalable, accessible web applications with React, Next.js, and TypeScript.",
-    creator: "@amrsamy", // Assuming a handle or leave generic
+    creator: "@amrsamy",
   },
   robots: {
     index: true,
@@ -67,13 +68,31 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cmsData = await getCmsData();
+  const theme = cmsData?.theme;
+
   return (
     <html lang="en" className={plusJakarta.variable}>
+      <head>
+        {theme && (
+          <style>{`
+            :root {
+              --background: ${theme.background};
+              --foreground: ${theme.foreground};
+              --muted: ${theme.muted};
+              --accent: ${theme.accent};
+              --accent-hover: ${theme.accentHover};
+              --card: ${theme.card};
+              --border: ${theme.border};
+            }
+          `}</style>
+        )}
+      </head>
       <body className="font-sans antialiased">
         <script
           type="application/ld+json"
