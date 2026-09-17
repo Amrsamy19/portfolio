@@ -44,6 +44,9 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || 'postgres://postgres:postgres@127.0.0.1:5432/portfolio',
       ssl: process.env.DATABASE_URI?.includes('127.0.0.1') ? false : { rejectUnauthorized: false },
+      max: 5,
+      idleTimeoutMillis: 1,
+      connectionTimeoutMillis: 10000,
     },
   }),
 });

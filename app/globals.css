@@ -34,7 +34,7 @@ body {
 /* Subtle texture */
 
 ::selection {
-  background: rgba(168, 85, 247, 0.25);
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 /* Card hover */
@@ -48,8 +48,8 @@ body {
   transform: translateY(-6px);
   box-shadow:
     0 20px 40px -16px rgba(0, 0, 0, 0.5),
-    0 0 48px -12px rgba(168, 85, 247, 0.2);
-  border-color: rgba(168, 85, 247, 0.4);
+    0 0 48px -12px color-mix(in srgb, var(--accent) 20%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 /* Small card / pill hover (e.g. stack skills) */
@@ -61,8 +61,8 @@ body {
 }
 .card-hover-sm:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px -8px rgba(168, 85, 247, 0.25);
-  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--accent) 25%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 /* Primary button (accent fill) */
@@ -74,7 +74,7 @@ body {
 }
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 24px -4px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 8px 24px -4px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 /* Secondary / outline button */
@@ -87,7 +87,7 @@ body {
 }
 .btn-secondary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px -2px rgba(168, 85, 247, 0.15);
+  box-shadow: 0 4px 12px -2px color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
 /* Pill / small button (e.g. Live, Repo) */

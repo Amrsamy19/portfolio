@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { getCmsData } from "@/lib/cms/api";
 
+export const dynamic = 'force-dynamic';
+
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
