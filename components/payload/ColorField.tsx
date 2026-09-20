@@ -2,7 +2,7 @@
 import React from 'react'
 import { useField } from '@payloadcms/ui'
 
-export default function ColorField({ path, field }: any) {
+export default function ColorField({ path, field }: { path: string, field: { label?: string, name?: string, required?: boolean, [key: string]: unknown } }) {
   const { value, setValue } = useField<string>({ path })
   
   const label = field?.label || field?.name || path;

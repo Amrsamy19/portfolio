@@ -8,7 +8,35 @@ import {
 } from "@/components/ui/AnimatedSection";
 import { EXPERIENCE } from "@/app/data";
 
-export function Experience() {
+export interface ExperienceData {
+  id?: string | number;
+  company: string;
+  role: string;
+  period?: string;
+  startDate?: string;
+  endDate?: string;
+  isCurrent?: boolean;
+  location: string;
+  logo: string | { url?: string; [key: string]: unknown };
+}
+
+function formatDate(dateStr?: string) {
+  if (!dateStr) return "";
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "Unknown Date"; // fallback for invalid date
+  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
+
+function getPeriod(exp: ExperienceData) {
+  if (exp.period && !exp.startDate) return exp.period; // Fallback to old text field if present and new fields are empty
+  const start = formatDate(exp.startDate) || "Jan 2024 (Dummy)";
+  const end = exp.isCurrent ? "Present" : (formatDate(exp.endDate) || "Dec 2024 (Dummy)");
+  return `${start} – ${end}`;
+}
+
+export function Experience({ data }: { data?: ExperienceData[] }) {
+  const experiences = data && data.length > 0 ? data : EXPERIENCE;
+
   return (
     <AnimatedSection
       as="section"
@@ -22,36 +50,42 @@ export function Experience() {
           className="divide-y divide-(--border)"
           staggerDelay={0.12}
         >
-          {EXPERIENCE.map(({ company, role, period, location, logo }) => (
-            <StaggerItem
-              key={company}
-              className="group -mx-3 flex flex-col gap-2 rounded-xl px-3 py-6 transition-colors duration-300 hover:bg-white/5 md:flex-row md:items-baseline md:justify-between"
-            >
-              <div className="flex items-start gap-4">
-                <div className="relative h-12 w-12 shrink-0 rounded-md bg-white/90 p-1 sm:h-13 sm:w-13 md:h-14 md:w-14">
+          {experiences.map((exp) => {
+            const { company, role, location, logo } = exp;
+            const periodText = getPeriod(exp);
+            let logoUrl = typeof logo === "string" ? logo : logo?.url;
+            if (!logoUrl) logoUrl = "/placeholder.jpg";
+            return (
+              <StaggerItem
+                key={company}
+                className="group -mx-3 flex flex-col gap-2 rounded-xl px-3 py-6 transition-colors duration-300 hover:bg-white/5 md:flex-row md:items-baseline md:justify-between"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="relative h-12 w-12 shrink-0 rounded-md bg-white/90 p-1 sm:h-13 sm:w-13 md:h-14 md:w-14">
                     <Image
-                      src={logo}
+                      src={logoUrl}
                       alt={`${company} logo`}
                       fill
                       sizes="(max-width: 640px) 48px, (max-width: 768px) 52px, 56px"
                       className="rounded-sm object-contain"
                     />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold md:text-[1.35rem]">
+                      {company}
+                    </h3>
+                    <p className="text-(--accent) text-base font-medium">
+                      {role}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold md:text-[1.35rem]">
-                    {company}
-                  </h3>
-                  <p className="text-(--accent) text-base font-medium">
-                    {role}
-                  </p>
+                <div className="text-sm text-(--muted)/80 md:text-right md:text-base">
+                  <p>{periodText}</p>
+                  <p>{location}</p>
                 </div>
-              </div>
-              <div className="text-sm text-(--muted)/80 md:text-right md:text-base">
-                <p>{period}</p>
-                <p>{location}</p>
-              </div>
-            </StaggerItem>
-          ))}
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </div>
     </AnimatedSection>

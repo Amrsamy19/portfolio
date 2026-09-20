@@ -1,6 +1,3 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import { PageLoader } from "@/components/PageLoader";
 import { Header } from "@/components/layout/Header";
 import { VerticalEmail } from "@/components/layout/VerticalEmail";
@@ -12,14 +9,12 @@ import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { FloatingIcons } from "@/components/ui/FloatingIcons";
+import { getCmsData } from "@/lib/cms/api";
 
-const FloatingIcons = dynamic(
-  () =>
-    import("@/components/ui/FloatingIcons").then((mod) => mod.FloatingIcons),
-  { ssr: false },
-);
-
-export default function Home() {
+export default async function Home() {
+  const cmsData = await getCmsData();
+  
   return (
     <>
       <PageLoader />
@@ -28,12 +23,11 @@ export default function Home() {
       <ScrollProgress />
       <FloatingIcons />
       <main className="relative z-10">
-        <Hero />
-        <About />
-        <Stack />
-        <Experience />
-        <Projects />
-        {/* <Partners /> */}
+        <Hero data={cmsData?.hero} />
+        <About data={cmsData?.about} />
+        <Stack data={cmsData?.skills} />
+        <Experience data={cmsData?.experience} />
+        <Projects data={cmsData?.projects} />
         <Contact />
         <Footer />
       </main>

@@ -4,6 +4,8 @@ export const Experience: CollectionConfig = {
   slug: 'experience',
   admin: {
     useAsTitle: 'company',
+    defaultColumns: ['company', 'role', 'startDate', 'isCurrent', 'order'],
+    defaultSort: 'order',
   },
   access: {
     read: () => true,
@@ -11,7 +13,34 @@ export const Experience: CollectionConfig = {
   fields: [
     { name: 'company', type: 'text', required: true },
     { name: 'role', type: 'text', required: true },
-    { name: 'period', type: 'text', required: true },
+    {
+      name: 'startDate',
+      type: 'date',
+      required: true,
+      admin: {
+        date: {
+          pickerAppearance: 'monthOnly',
+          displayFormat: 'MMMM yyyy',
+        },
+      },
+    },
+    {
+      name: 'isCurrent',
+      type: 'checkbox',
+      label: 'Present',
+      defaultValue: false,
+    },
+    {
+      name: 'endDate',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'monthOnly',
+          displayFormat: 'MMMM yyyy',
+        },
+        condition: (_, siblingData) => !siblingData.isCurrent,
+      },
+    },
     { name: 'location', type: 'text', required: true },
     { name: 'logo', type: 'upload', relationTo: 'media' },
     { name: 'order', type: 'number', required: true },

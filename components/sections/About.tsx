@@ -2,7 +2,17 @@
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-export function About() {
+export interface AboutData {
+  eyebrow?: string;
+  heading?: string;
+  content?: string;
+}
+
+export function About({ data }: { data?: AboutData }) {
+  const eyebrow = data?.eyebrow || "This is me";
+  const heading = data?.heading || "Hi, I'm Amr.";
+  const content = data?.content || "I'm a Software Engineer dedicated to turning ideas into scalable, accessible web applications. I specialize in React, Next.js, and TypeScript, with experience in modern UI systems, authentication flows, and integrating REST APIs in real-world SaaS and dashboard environments.";
+
   return (
     <AnimatedSection
       as="section"
@@ -12,19 +22,13 @@ export function About() {
     >
       <div className="max-w-3xl mx-auto text-center">
         <p className="text-xs uppercase tracking-[0.25em] text-(--muted) mb-4 font-medium">
-          This is me
+          {eyebrow}
         </p>
         <h2 className="text-3xl md:text-5xl font-bold mb-8">
-          Hi, I&apos;m Amr.
+          {heading}
         </h2>
         <div className="space-y-6 text-lg md:text-xl text-(--muted) leading-relaxed">
-          <p>
-            I&apos;m a Software Engineer dedicated to turning ideas into
-            scalable, accessible web applications. I specialize in React,
-            Next.js, and TypeScript, with experience in modern UI systems,
-            authentication flows, and integrating REST APIs in real-world SaaS
-            and dashboard environments.
-          </p>
+          <p>{content}</p>
         </div>
       </div>
     </AnimatedSection>

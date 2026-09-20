@@ -15,7 +15,21 @@ const CATEGORY_LABELS: Record<string, string> = {
   tools: "Tools & DevOps",
 };
 
-export function Stack() {
+export interface SkillData {
+  id?: string | number;
+  category: string;
+  items: { skill: string; id?: string | null }[];
+}
+
+export function Stack({ data }: { data?: SkillData[] }) {
+  // Normalize data: if CMS data exists, use it. Otherwise, use hardcoded STACK.
+  const mappedData = data && data.length > 0 
+    ? data 
+    : Object.entries(STACK).map(([cat, items]) => ({
+        category: cat,
+        items: items.map(skill => ({ skill }))
+      }));
+
   return (
     <AnimatedSection
       as="section"
@@ -37,8 +51,8 @@ export function Stack() {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           staggerDelay={0.08}
         >
-          {Object.entries(STACK).map(([category, items]) => (
-            <StaggerItem key={category} className="h-full">
+          {mappedData.map(({ category, items }, i) => (
+            <StaggerItem key={`${category}-${i}`} className="h-full">
               <div className="relative h-full bg-(--card) border border-(--border) rounded-3xl p-8 hover:border-(--accent)/50 transition-all duration-500 group overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute -right-8 -top-8 w-32 h-32 bg-(--accent)/5 blur-3xl rounded-full group-hover:bg-(--accent)/10 transition-colors duration-500" />
@@ -49,11 +63,12 @@ export function Stack() {
                 </h3>
 
                 <div className="flex flex-wrap gap-3">
-                  {items.map((item) => {
+                  {items.map((itemObj, j) => {
+                    const item = itemObj.skill;
                     const Icon = getStackIcon(item);
                     return (
                       <span
-                        key={item}
+                        key={`${item}-${j}`}
                         className="flex items-center gap-3 py-2.5 px-4 rounded-xl bg-(--background)/40 border border-(--border) hover:border-(--accent)/30 hover:bg-background transition-all duration-300 group/item"
                       >
                         <Icon

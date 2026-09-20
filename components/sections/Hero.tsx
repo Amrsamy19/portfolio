@@ -3,7 +3,24 @@
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-export function Hero() {
+export interface HeroData {
+  heading?: string;
+  subheading?: string;
+  description?: string;
+  primaryButtonText?: string;
+  primaryButtonLink?: string;
+  secondaryButtonText?: string;
+  secondaryButtonLink?: string;
+}
+
+export function Hero({ data }: { data?: HeroData }) {
+  const heading = data?.heading || "AMR SAMY";
+  const description = data?.description || "A Software Engineer focused on building scalable, accessible, and responsive web applications.";
+  const primaryButtonText = data?.primaryButtonText || "Hire Me";
+  const primaryButtonLink = data?.primaryButtonLink || "mailto:amrsamy622@gmail.com";
+  const secondaryButtonText = data?.secondaryButtonText || "Resume";
+  const secondaryButtonLink = data?.secondaryButtonLink || "/Amr_Samy_CV.pdf";
+
   return (
     <AnimatedSection
       as="section"
@@ -21,7 +38,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
           >
-            <span className="text-(--accent)">AMR SAMY</span>
+            <span className="text-(--accent)">{heading}</span>
             <br />
           </motion.h1>
           <motion.p
@@ -30,12 +47,15 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.45, ease: "easeOut" }}
           >
-            A{" "}
-            <strong className="text-foreground inline-block">
-              Software Engineer
-            </strong>{" "}
-            focused on building scalable, accessible, and responsive web
-            applications.
+            {description.includes("Software Engineer") ? (
+              <>
+                {description.split("Software Engineer")[0]}
+                <strong className="text-foreground inline-block">Software Engineer</strong>
+                {description.split("Software Engineer")[1]}
+              </>
+            ) : (
+              description
+            )}
           </motion.p>
           <motion.div
             className="flex flex-wrap justify-center gap-6"
@@ -44,18 +64,18 @@ export function Hero() {
             transition={{ duration: 0.45, delay: 0.65, ease: "easeOut" }}
           >
             <a
-              href="mailto:amrsamy622@gmail.com"
+              href={primaryButtonLink}
               className="btn-primary inline-flex items-center justify-center bg-(--accent) px-8 py-4 text-base font-semibold uppercase tracking-wider text-background hover:bg-(--accent-hover) transition-colors"
             >
-              Hire Me
+              {primaryButtonText}
             </a>
             <a
-              href="/Amr_Samy_CV.pdf"
+              href={secondaryButtonLink}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary inline-flex items-center justify-center border border-(--border) px-8 py-4 text-base font-semibold uppercase tracking-wider text-foreground hover:border-(--accent) hover:text-(--accent) transition-all"
             >
-              Resume
+              {secondaryButtonText}
             </a>
           </motion.div>
         </div>
