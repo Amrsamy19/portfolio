@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from 'next/server';
-import { Payload } from 'payload';
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
 import { PROJECTS } from '@/app/data/projects';
@@ -45,7 +44,6 @@ export async function GET() {
         primaryButtonText: 'Hire Me',
         primaryButtonLink: 'mailto:amrsamy622@gmail.com',
         secondaryButtonText: 'Resume',
-        secondaryButtonLink: '/Amr_Samy_CV.pdf',
       } as any,
     });
 

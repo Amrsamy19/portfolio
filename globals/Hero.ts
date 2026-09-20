@@ -12,6 +12,6 @@ export const Hero: GlobalConfig = {
     { name: 'primaryButtonText', type: 'text', defaultValue: 'Hire Me' },
     { name: 'primaryButtonLink', type: 'text', defaultValue: 'mailto:amrsamy622@gmail.com' },
     { name: 'secondaryButtonText', type: 'text', defaultValue: 'Resume' },
-    { name: 'secondaryButtonLink', type: 'text', defaultValue: '/Amr_Samy_CV.pdf' },
+    { name: 'resume', type: 'upload', relationTo: 'media', required: false },
   ],
 };

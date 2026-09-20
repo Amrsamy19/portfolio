@@ -40,7 +40,7 @@ export async function getCmsData(): Promise<CmsData | null> {
         primaryButtonText: hero.primaryButtonText?.toString(),
         primaryButtonLink: hero.primaryButtonLink?.toString(),
         secondaryButtonText: hero.secondaryButtonText?.toString(),
-        secondaryButtonLink: hero.secondaryButtonLink?.toString(),
+        secondaryButtonLink: (typeof hero.resume === 'object' && hero.resume !== null && 'url' in hero.resume) ? String((hero.resume as { url?: string }).url) : '/Amr_Samy_CV.pdf',
       },
       about: {
         eyebrow: about.eyebrow?.toString(),
