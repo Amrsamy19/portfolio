@@ -2,10 +2,10 @@ import { CollectionConfig } from 'payload';
 
 export const Experience: CollectionConfig = {
   slug: 'experience',
+  defaultSort: 'order',
   admin: {
     useAsTitle: 'company',
     defaultColumns: ['company', 'role', 'startDate', 'isCurrent', 'order'],
-    defaultSort: 'order',
   },
   access: {
     read: () => true,

@@ -76,7 +76,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cmsData = await getCmsData();
-  const theme = cmsData?.theme;
+  const theme = cmsData?.theme as Record<string, string> | undefined | null;
 
   return (
     <html lang="en" className={plusJakarta.variable}>
