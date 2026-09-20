@@ -41,19 +41,20 @@ export function Header() {
       >
         <a href="#home" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-(--card) border border-(--border) group-hover:border-(--accent) transition-all duration-300 shadow-lg p-1.5 flex items-center justify-center">
-            <div 
-              className="w-full h-full bg-(--accent) group-hover:scale-110 transition-transform duration-300"
-              style={{
-                maskImage: 'url(/logo.png)',
-                WebkitMaskImage: 'url(/logo.png)',
-                maskSize: 'contain',
-                WebkitMaskSize: 'contain',
-                maskRepeat: 'no-repeat',
-                WebkitMaskRepeat: 'no-repeat',
-                maskPosition: 'center',
-                WebkitMaskPosition: 'center',
-              }}
-            />
+            <svg 
+              className="w-full h-full text-(--accent) group-hover:scale-110 transition-transform duration-300"
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M4 20h16" />
+              <path d="m12 4-8 16" />
+              <path d="m12 4 8 16" />
+              <path d="M8 14h8" />
+            </svg>
           </div>
           <span className="font-bold text-lg tracking-tight hidden sm:block">
             AMR<span className="text-(--accent)">SAMY</span>
