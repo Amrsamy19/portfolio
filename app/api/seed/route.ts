@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from 'next/server';
+import { Payload } from 'payload';
 import { getPayload } from 'payload';
-import configPromise from '@/payload.config';
+import configPromise from '@payload-config';
 import { PROJECTS } from '@/app/data/projects';
 import { EXPERIENCE } from '@/app/data/experience';
 import { STACK } from '@/app/data/stack';

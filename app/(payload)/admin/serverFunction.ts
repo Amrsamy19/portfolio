@@ -1,5 +1,5 @@
 'use server'
-import config from '@/payload.config'
+import configPromise from '@payload-config'
 import { handleServerFunctions } from '@payloadcms/next/layouts'
 import type { ServerFunctionClient } from 'payload'
 import { importMap } from './importMap'
@@ -7,7 +7,7 @@ import { importMap } from './importMap'
 export const serverFunction: ServerFunctionClient = async function (args) {
   return handleServerFunctions({
     ...args,
-    config,
+    config: configPromise,
     importMap,
   })
 }

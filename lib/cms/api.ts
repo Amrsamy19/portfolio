@@ -1,5 +1,5 @@
 import { getPayload } from 'payload';
-import configPromise from '@/payload.config';
+import configPromise from '@payload-config';
 
 import type { HeroData } from "@/components/sections/Hero";
 import type { AboutData } from "@/components/sections/About";
