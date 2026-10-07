@@ -14,21 +14,21 @@ import { getCmsData } from "@/core/cms/api";
 
 export default async function Home() {
   const cmsData = await getCmsData();
-  
+
   return (
     <>
       <PageLoader />
-      <Header />
+      <Header data={cmsData?.siteSettings} />
       <VerticalEmail />
       <ScrollProgress />
-      <FloatingIcons />
+      <FloatingIcons skills={cmsData?.skills} />
       <main className="relative z-10">
         <Hero data={cmsData?.hero} />
         <About data={cmsData?.about} />
         <Stack data={cmsData?.skills} />
         <Experience data={cmsData?.experience} />
         <Projects data={cmsData?.projects} />
-        <Contact />
+        <Contact data={cmsData?.siteSettings} />
         <Footer />
       </main>
     </>

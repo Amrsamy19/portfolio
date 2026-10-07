@@ -11,9 +11,9 @@ export interface AboutProps {
 }
 
 export function About({ data }: AboutProps) {
-  const eyebrow = data?.eyebrow || "This is me";
-  const heading = data?.heading || "Hi, I'm Amr.";
-  const content = data?.content || "I'm a Software Engineer dedicated to turning ideas into scalable, accessible web applications. I specialize in React, Next.js, and TypeScript, with experience in modern UI systems, authentication flows, and integrating REST APIs in real-world SaaS and dashboard environments.";
+  const eyebrow = data?.eyebrow ?? "";
+  const heading = data?.heading ?? "";
+  const content = data?.content ?? "";
 
   return (
     <AnimatedSection

@@ -2,12 +2,19 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { SECTIONS } from "@/core/data/sections";
-import { SOCIAL, EMAIL } from "@/core/data/social";
+import type { SiteSettingsData } from "@/core/cms/api";
 
-export function Header() {
+export interface HeaderProps {
+  data?: SiteSettingsData;
+}
+
+export function Header({ data }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const socialLinks = data?.socialLinks ?? [];
+  const navigation = data?.navigation ?? [];
+  const email = "amrsamy622@gmail.com";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,10 +143,10 @@ export function Header() {
                       Social
                     </h3>
                     <ul className="flex flex-col gap-4">
-                      {SOCIAL.map(({ label, href }) => (
+                      {socialLinks.map(({ label, url }) => (
                         <li key={label}>
                           <a
-                            href={href}
+                            href={url}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setOpen(false)}
@@ -158,13 +165,13 @@ export function Header() {
                       Menu
                     </h3>
                     <ul className="flex flex-col gap-4">
-                      {SECTIONS.map(({ id, label }) => {
+                      {navigation.map(({ sectionId, label }) => {
                         const dotColor = "bg-[var(--accent)]";
 
                         return (
-                          <li key={id}>
+                          <li key={sectionId}>
                             <a
-                              href={`#${id}`}
+                              href={`#${sectionId}`}
                               onClick={() => setOpen(false)}
                               className="flex items-center gap-3 text-gray-200 hover:text-white transition-colors text-lg md:text-xl group"
                             >
@@ -188,10 +195,10 @@ export function Header() {
                 </h3>
                 <div className="flex flex-col gap-2">
                   <a
-                    href={`mailto:${EMAIL}`}
+                    href={`mailto:${email}`}
                     className="text-white hover:text-(--accent) transition-colors text-base md:text-lg"
                   >
-                    {EMAIL}
+                    {email}
                   </a>
                   <a
                     href="/Amr_Samy_CV.pdf"

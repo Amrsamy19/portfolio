@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { getCmsData } from "@/core/cms/api";
-import type { ThemeData } from "@/core/cms/api";
 
 export const dynamic = 'force-dynamic';
 

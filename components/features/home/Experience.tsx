@@ -6,7 +6,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimatedSection";
-import { EXPERIENCE } from "@/core/data";
 
 export interface ExperienceData {
   id?: string | number;
@@ -38,7 +37,7 @@ function getPeriod(exp: ExperienceData): string {
 
 
 export function Experience({ data }: { data?: ExperienceData[] }) {
-  const experiences = data && data.length > 0 ? data : EXPERIENCE;
+  const experiences = data ?? [];
 
   return (
     <AnimatedSection

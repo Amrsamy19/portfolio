@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { getStackIcon } from "@/components/features/home/stack-icons";
 
-import { STACK } from "@/core/data";
+import { SkillData } from "@/components/features/home/Stack";
 
-const ICONS = Object.values(STACK).flat();
+interface FloatingIconsProps {
+  skills?: SkillData[];
+}
 
 interface FloatingIconDatum {
   icon: string;
@@ -18,14 +20,17 @@ interface FloatingIconDatum {
   animY: number[];
 }
 
-export function FloatingIcons() {
+export function FloatingIcons({ skills }: FloatingIconsProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [iconData, setIconData] = useState<FloatingIconDatum[]>([]);
 
   useEffect(() => {
+    // Flatten all skills from CMS or fallback to empty array
+    const allIcons = skills ? skills.flatMap((s) => s.items.map((i) => i.skill)) : [];
+
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIconData(
-      ICONS.map((icon) => ({
+      allIcons.map((icon) => ({
         icon,
         size: Math.random() * 30 + 30,
         initialX: Math.random() * 100,
@@ -36,7 +41,7 @@ export function FloatingIcons() {
       }))
     );
     setIsMounted(true);
-  }, []);
+  }, [skills]);
 
   if (!isMounted) return null;
 

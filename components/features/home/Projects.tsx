@@ -6,7 +6,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimatedSection";
-import { PROJECTS } from "@/core/data";
 
 export interface ProjectData {
   id?: string | number;
@@ -19,7 +18,7 @@ export interface ProjectData {
 }
 
 export function Projects({ data }: { data?: ProjectData[] }) {
-  const projectsData = data && data.length > 0 ? data : PROJECTS;
+  const projectsData = data ?? [];
 
   return (
     <AnimatedSection

@@ -5,7 +5,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimatedSection";
-import { STACK } from "@/core/data";
 import { getStackIcon } from "./stack-icons";
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -22,13 +21,7 @@ export interface SkillData {
 }
 
 export function Stack({ data }: { data?: SkillData[] }) {
-  // Normalize data: if CMS data exists, use it. Otherwise, use hardcoded STACK.
-  const mappedData = data && data.length > 0 
-    ? data 
-    : Object.entries(STACK).map(([cat, items]) => ({
-        category: cat,
-        items: items.map(skill => ({ skill }))
-      }));
+  const mappedData = data ?? [];
 
   return (
     <AnimatedSection

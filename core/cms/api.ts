@@ -21,6 +21,8 @@ export interface ThemeData {
 export interface SiteSettingsData {
   title?: string;
   description?: string;
+  socialLinks?: { label: string; url: string }[];
+  navigation?: { label: string; sectionId: string }[];
 }
 
 export interface CmsData {

@@ -18,12 +18,12 @@ export interface HeroProps {
 }
 
 export function Hero({ data }: HeroProps) {
-  const heading = data?.heading || "AMR SAMY";
-  const description = data?.description || "A Software Engineer focused on building scalable, accessible, and responsive web applications.";
-  const primaryButtonText = data?.primaryButtonText || "Hire Me";
-  const primaryButtonLink = data?.primaryButtonLink || "mailto:amrsamy622@gmail.com";
-  const secondaryButtonText = data?.secondaryButtonText || "Resume";
-  const secondaryButtonLink = data?.secondaryButtonLink || "/Amr_Samy_CV.pdf";
+  const heading = data?.heading ?? "";
+  const description = data?.description ?? "";
+  const primaryButtonText = data?.primaryButtonText ?? "";
+  const primaryButtonLink = data?.primaryButtonLink ?? "";
+  const secondaryButtonText = data?.secondaryButtonText ?? "";
+  const secondaryButtonLink = data?.secondaryButtonLink ?? "";
 
   return (
     <AnimatedSection

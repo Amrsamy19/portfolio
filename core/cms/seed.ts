@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { loadEnvConfig } from '@next/env';
 loadEnvConfig(process.cwd());
 import fs from 'fs';

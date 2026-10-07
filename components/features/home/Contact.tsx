@@ -1,7 +1,14 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { SOCIAL, EMAIL } from "@/core/data/social";
+import { SiteSettingsData } from "@/core/cms/api";
 
-export function Contact() {
+export interface ContactProps {
+  data?: SiteSettingsData;
+}
+
+export function Contact({ data }: ContactProps) {
+  const socialLinks = data?.socialLinks ?? [];
+  const email = "amrsamy622@gmail.com";
+
   return (
     <AnimatedSection
       as="section"
@@ -20,22 +27,22 @@ export function Contact() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
           {/* Email Card */}
           <a
-            href={`mailto:${EMAIL}`}
+            href={`mailto:${email}`}
             className="group block p-6 rounded-2xl border border-(--border) bg-(--card) card-hover hover:border-(--accent)/50"
           >
             <p className="text-sm font-medium text-(--muted) mb-1 uppercase tracking-wider">
               Email
             </p>
             <p className="text-xl font-semibold text-foreground group-hover:text-(--accent) transition-colors">
-              {EMAIL}
+              {email}
             </p>
           </a>
 
           {/* Social Links */}
-          {SOCIAL.map((link: { label: string; href: string }) => (
+          {socialLinks.map((link) => (
             <a
               key={link.label}
-              href={link.href}
+              href={link.url}
               target="_blank"
               rel="noopener noreferrer"
               className="group block p-6 rounded-2xl border border-(--border) bg-(--card) card-hover hover:border-(--accent)/50"
@@ -44,7 +51,7 @@ export function Contact() {
                 {link.label}
               </p>
               <p className="text-xl font-semibold text-foreground group-hover:text-(--accent) transition-colors">
-                @{link.href.split("/").pop()}
+                {link.label === "GitHub" || link.label === "LinkedIn" ? "@" + link.url.split("/").filter(Boolean).pop() : link.url}
               </p>
             </a>
           ))}
