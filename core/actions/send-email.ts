@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import { Resend } from "resend";
+import { revalidatePath } from "next/cache";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -70,6 +71,7 @@ export async function sendEmail(
       return { success: false, message: error.message };
     }
 
+    revalidatePath('/');
     return { success: true, message: "Message sent. I'll get back to you soon!" };
   } catch (err: unknown) {
     console.error(err);

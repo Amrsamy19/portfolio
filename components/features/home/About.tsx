@@ -1,5 +1,3 @@
-"use client";
-
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 export interface AboutData {
@@ -8,7 +6,11 @@ export interface AboutData {
   content?: string;
 }
 
-export function About({ data }: { data?: AboutData }) {
+export interface AboutProps {
+  data?: AboutData;
+}
+
+export function About({ data }: AboutProps) {
   const eyebrow = data?.eyebrow || "This is me";
   const heading = data?.heading || "Hi, I'm Amr.";
   const content = data?.content || "I'm a Software Engineer dedicated to turning ideas into scalable, accessible web applications. I specialize in React, Next.js, and TypeScript, with experience in modern UI systems, authentication flows, and integrating REST APIs in real-world SaaS and dashboard environments.";

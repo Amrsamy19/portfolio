@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { SECTIONS } from "@/core/data/sections";
-import { SOCIAL } from "@/core/data/social";
+import { SOCIAL, EMAIL } from "@/core/data/social";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -188,10 +188,10 @@ export function Header() {
                 </h3>
                 <div className="flex flex-col gap-2">
                   <a
-                    href="mailto:amrsamy622@gmail.com"
+                    href={`mailto:${EMAIL}`}
                     className="text-white hover:text-(--accent) transition-colors text-base md:text-lg"
                   >
-                    amrsamy622@gmail.com
+                    {EMAIL}
                   </a>
                   <a
                     href="/Amr_Samy_CV.pdf"

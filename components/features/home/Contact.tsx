@@ -1,7 +1,5 @@
-"use client";
-
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { SOCIAL } from "@/core/data/social";
+import { SOCIAL, EMAIL } from "@/core/data/social";
 
 export function Contact() {
   return (
@@ -22,14 +20,14 @@ export function Contact() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
           {/* Email Card */}
           <a
-            href="mailto:amrsamy622@gmail.com"
+            href={`mailto:${EMAIL}`}
             className="group block p-6 rounded-2xl border border-(--border) bg-(--card) card-hover hover:border-(--accent)/50"
           >
             <p className="text-sm font-medium text-(--muted) mb-1 uppercase tracking-wider">
               Email
             </p>
             <p className="text-xl font-semibold text-foreground group-hover:text-(--accent) transition-colors">
-              amrsamy622@gmail.com
+              {EMAIL}
             </p>
           </a>
 

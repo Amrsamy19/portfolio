@@ -8,19 +8,19 @@ import { STACK } from "@/core/data";
 
 const ICONS = Object.values(STACK).flat();
 
+interface FloatingIconDatum {
+  icon: string;
+  size: number;
+  initialX: number;
+  initialY: number;
+  duration: number;
+  animX: number[];
+  animY: number[];
+}
+
 export function FloatingIcons() {
   const [isMounted, setIsMounted] = useState(false);
-  const [iconData, setIconData] = useState<
-    Array<{
-      icon: string;
-      size: number;
-      initialX: number;
-      initialY: number;
-      duration: number;
-      animX: number[];
-      animY: number[];
-    }>
-  >([]);
+  const [iconData, setIconData] = useState<FloatingIconDatum[]>([]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect

@@ -13,7 +13,11 @@ export interface HeroData {
   secondaryButtonLink?: string;
 }
 
-export function Hero({ data }: { data?: HeroData }) {
+export interface HeroProps {
+  data?: HeroData;
+}
+
+export function Hero({ data }: HeroProps) {
   const heading = data?.heading || "AMR SAMY";
   const description = data?.description || "A Software Engineer focused on building scalable, accessible, and responsive web applications.";
   const primaryButtonText = data?.primaryButtonText || "Hire Me";
