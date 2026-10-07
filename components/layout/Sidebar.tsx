@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { SECTIONS, SOCIAL } from "@/app/data";
+import { SECTIONS, SOCIAL } from "@/core/data";
 
 const sidebarVariants = {
   hidden: { opacity: 0, x: -24 },

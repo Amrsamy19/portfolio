@@ -1,23 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getPayload } from 'payload';
 import configPromise from '../../payload.config';
-import { PROJECTS } from '../../app/data/projects';
-import { EXPERIENCE } from '../../app/data/experience';
-import { STACK } from '../../app/data/stack';
-import { SOCIAL } from '../../app/data/social';
-import { SECTIONS } from '../../app/data/sections';
+import { PROJECTS } from '../../core/data/projects';
+import { EXPERIENCE } from '../../core/data/experience';
+import { STACK } from '../../core/data/stack';
+import { SOCIAL } from '../../core/data/social';
+import { SECTIONS } from '../../core/data/sections';
 
 async function seed() {
   const payload = await getPayload({ config: configPromise });
-  
+
   console.log('Seeding Global: Site Settings...');
   await payload.updateGlobal({
     slug: 'site-settings',
     data: {
       title: 'Amr Samy | Software Engineer',
       description: 'Software Engineer specializing in React, Next.js, and TypeScript.',
-      navigation: SECTIONS.map(s => ({ label: s.label, sectionId: s.id })),
-      socialLinks: SOCIAL.map(s => ({ label: s.label, url: s.href })),
+      navigation: SECTIONS.map((s) => ({ label: s.label, sectionId: s.id })),
+      socialLinks: SOCIAL.map((s) => ({ label: s.label, url: s.href })),
     } as any,
   });
 
@@ -41,7 +41,8 @@ async function seed() {
     data: {
       heading: 'AMR SAMY',
       subheading: 'Software Engineer',
-      description: 'A Software Engineer focused on building scalable, accessible, and responsive web applications.',
+      description:
+        'A Software Engineer focused on building scalable, accessible, and responsive web applications.',
       primaryButtonText: 'Hire Me',
       primaryButtonLink: 'mailto:amrsamy622@gmail.com',
       secondaryButtonText: 'Resume',
@@ -55,51 +56,51 @@ async function seed() {
     data: {
       eyebrow: 'This is me',
       heading: "Hi, I'm Amr.",
-      content: "I'm a Software Engineer dedicated to turning ideas into scalable, accessible web applications. I specialize in React, Next.js, and TypeScript, with experience in modern UI systems, authentication flows, and integrating REST APIs in real-world SaaS and dashboard environments.",
+      content:
+        "I'm a Software Engineer dedicated to turning ideas into scalable, accessible web applications. I specialize in React, Next.js, and TypeScript, with experience in modern UI systems, authentication flows, and integrating REST APIs in real-world SaaS and dashboard environments.",
     },
   });
 
   console.log('Seeding Collection: Projects...');
-  for (let i = 0; i < PROJECTS.length; i++) {
-    const p = PROJECTS[i];
+  let projectOrder = 0;
+  for (const p of PROJECTS) {
     await payload.create({
       collection: 'projects',
       data: {
         title: p.name,
         description: p.description,
         isFreelance: p.freelance,
-        bullets: p.bullets.map(b => ({ text: b })),
-        liveUrl: p.live || '',
-        repoUrl: p.repo || '',
-        order: i,
+        bullets: p.bullets.map((b) => ({ text: b })),
+        liveUrl: p.live ?? '',
+        repoUrl: p.repo ?? '',
+        order: projectOrder++,
       } as any,
     });
   }
 
   console.log('Seeding Collection: Experience...');
-  for (let i = 0; i < EXPERIENCE.length; i++) {
-    const e = EXPERIENCE[i];
+  let expOrder = 0;
+  for (const e of EXPERIENCE) {
     await payload.create({
       collection: 'experience',
       data: {
         company: e.company,
         role: e.role,
-        period: e.period,
         location: e.location,
-        order: i,
+        order: expOrder++,
       } as any,
     });
   }
 
   console.log('Seeding Collection: Skills...');
-  let order = 0;
+  let skillOrder = 0;
   for (const [category, items] of Object.entries(STACK)) {
     await payload.create({
       collection: 'skills',
       data: {
-        category: category,
-        items: items.map(skill => ({ skill })),
-        order: order++,
+        category,
+        items: items.map((skill) => ({ skill })),
+        order: skillOrder++,
       } as any,
     });
   }
@@ -108,7 +109,7 @@ async function seed() {
   process.exit(0);
 }
 
-seed().catch(err => {
+seed().catch((err: unknown) => {
   console.error(err);
   process.exit(1);
 });

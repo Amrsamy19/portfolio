@@ -6,7 +6,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimatedSection";
-import { PROJECTS } from "@/app/data";
+import { PROJECTS } from "@/core/data";
 
 export interface ProjectData {
   id?: string | number;

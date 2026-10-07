@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { SOCIAL } from "@/app/data/social";
+import { SOCIAL } from "@/core/data/social";
 
 export function Contact() {
   return (
@@ -34,7 +34,7 @@ export function Contact() {
           </a>
 
           {/* Social Links */}
-          {SOCIAL.map((link) => (
+          {SOCIAL.map((link: { label: string; href: string }) => (
             <a
               key={link.label}
               href={link.href}

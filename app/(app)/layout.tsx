@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
-import { getCmsData } from "@/lib/cms/api";
+import { getCmsData } from "@/core/cms/api";
+import type { ThemeData } from "@/core/cms/api";
 
 export const dynamic = 'force-dynamic';
 
@@ -13,7 +14,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Amr Samy | Software Engineer",
+  title: {
+    default: "Amr Samy | Software Engineer",
+    template: "%s | Amr Samy",
+  },
   description:
     "Software Engineer specializing in React, Next.js, and TypeScript. Building scalable, accessible, and high-performance web applications.",
   keywords: [
@@ -76,7 +80,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cmsData = await getCmsData();
-  const theme = cmsData?.theme as Record<string, string> | undefined | null;
+  const theme = cmsData?.theme;
 
   return (
     <html lang="en" className={plusJakarta.variable}>

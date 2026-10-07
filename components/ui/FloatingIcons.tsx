@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { getStackIcon } from "@/components/sections/stack-icons";
+import { getStackIcon } from "@/components/features/home/stack-icons";
 
-import { STACK } from "@/app/data";
+import { STACK } from "@/core/data";
 
 const ICONS = Object.values(STACK).flat();
 

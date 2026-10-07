@@ -5,7 +5,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimatedSection";
-import { STACK } from "@/app/data";
+import { STACK } from "@/core/data";
 import { getStackIcon } from "./stack-icons";
 
 const CATEGORY_LABELS: Record<string, string> = {

@@ -1,24 +1,24 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from 'next/server';
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
-import { PROJECTS } from '@/app/data/projects';
-import { EXPERIENCE } from '@/app/data/experience';
-import { STACK } from '@/app/data/stack';
-import { SOCIAL } from '@/app/data/social';
-import { SECTIONS } from '@/app/data/sections';
+import { PROJECTS } from '@/core/data/projects';
+import { EXPERIENCE } from '@/core/data/experience';
+import { STACK } from '@/core/data/stack';
+import { SOCIAL } from '@/core/data/social';
+import { SECTIONS } from '@/core/data/sections';
 
-export async function GET() {
+export async function GET(): Promise<NextResponse> {
   try {
     const payload = await getPayload({ config: configPromise });
-    
+
     await payload.updateGlobal({
       slug: 'site-settings',
       data: {
         title: 'Amr Samy | Software Engineer',
         description: 'Software Engineer specializing in React, Next.js, and TypeScript.',
-        navigation: SECTIONS.map(s => ({ label: s.label, sectionId: s.id })),
-        socialLinks: SOCIAL.map(s => ({ label: s.label, url: s.href })),
+        navigation: SECTIONS.map((s) => ({ label: s.label, sectionId: s.id })),
+        socialLinks: SOCIAL.map((s) => ({ label: s.label, url: s.href })),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
     });
 
@@ -40,10 +40,12 @@ export async function GET() {
       data: {
         heading: 'AMR SAMY',
         subheading: 'Software Engineer',
-        description: 'A Software Engineer focused on building scalable, accessible, and responsive web applications.',
+        description:
+          'A Software Engineer focused on building scalable, accessible, and responsive web applications.',
         primaryButtonText: 'Hire Me',
         primaryButtonLink: 'mailto:amrsamy622@gmail.com',
         secondaryButtonText: 'Resume',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
     });
 
@@ -52,36 +54,38 @@ export async function GET() {
       data: {
         eyebrow: 'This is me',
         heading: "Hi, I'm Amr.",
-        content: "I'm a Software Engineer dedicated to turning ideas into scalable, accessible web applications. I specialize in React, Next.js, and TypeScript, with experience in modern UI systems, authentication flows, and integrating REST APIs in real-world SaaS and dashboard environments.",
+        content:
+          "I'm a Software Engineer dedicated to turning ideas into scalable, accessible web applications. I specialize in React, Next.js, and TypeScript, with experience in modern UI systems, authentication flows, and integrating REST APIs in real-world SaaS and dashboard environments.",
       },
     });
 
-    for (let i = 0; i < PROJECTS.length; i++) {
-      const p = PROJECTS[i];
+    let projectOrder = 0;
+    for (const p of PROJECTS) {
       await payload.create({
         collection: 'projects',
         data: {
           title: p.name,
           description: p.description,
           isFreelance: p.freelance,
-          bullets: p.bullets.map(b => ({ text: b })),
-          liveUrl: p.live || '',
-          repoUrl: p.repo || '',
-          order: i,
+          bullets: p.bullets.map((b) => ({ text: b })),
+          liveUrl: p.live ?? '',
+          repoUrl: p.repo ?? '',
+          order: projectOrder++,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,
       });
     }
 
-    for (let i = 0; i < EXPERIENCE.length; i++) {
-      const e = EXPERIENCE[i];
+    let expOrder = 0;
+    for (const e of EXPERIENCE) {
       await payload.create({
         collection: 'experience',
         data: {
           company: e.company,
           role: e.role,
-          period: e.period,
           location: e.location,
-          order: i,
+          order: expOrder++,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,
       });
     }
@@ -91,16 +95,19 @@ export async function GET() {
       await payload.create({
         collection: 'skills',
         data: {
-          category: category,
-          items: items.map(skill => ({ skill })),
+          category,
+          items: items.map((skill) => ({ skill })),
           order: order++,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,
       });
     }
 
     return NextResponse.json({ success: true, message: 'Seeding complete!' });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error ? error.message : 'An unknown error occurred';
     console.error(error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }

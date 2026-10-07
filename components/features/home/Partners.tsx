@@ -5,7 +5,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimatedSection";
-import { PARTNERS } from "@/app/data/partners";
+import { PARTNERS } from "@/core/data/partners";
 
 export function Partners() {
   return (

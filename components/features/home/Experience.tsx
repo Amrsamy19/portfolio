@@ -6,7 +6,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimatedSection";
-import { EXPERIENCE } from "@/app/data";
+import { EXPERIENCE } from "@/core/data";
 
 export interface ExperienceData {
   id?: string | number;
@@ -27,12 +27,14 @@ function formatDate(dateStr?: string) {
   return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 
-function getPeriod(exp: ExperienceData) {
-  if (exp.period && !exp.startDate) return exp.period; // Fallback to old text field if present and new fields are empty
-  const start = formatDate(exp.startDate) || "Jan 2024 (Dummy)";
-  const end = exp.isCurrent ? "Present" : (formatDate(exp.endDate) || "Dec 2024 (Dummy)");
-  return `${start} – ${end}`;
+function getPeriod(exp: ExperienceData): string {
+  if (exp.period && !exp.startDate) return exp.period;
+  const start = formatDate(exp.startDate);
+  const end = exp.isCurrent ? "Present" : formatDate(exp.endDate);
+  if (!start && !end) return "";
+  return `${start || "—"} – ${end || "—"}`;
 }
+
 
 export function Experience({ data }: { data?: ExperienceData[] }) {
   const experiences = data && data.length > 0 ? data : EXPERIENCE;

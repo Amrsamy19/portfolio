@@ -2,8 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { SECTIONS } from "@/app/data/sections";
-import { SOCIAL } from "@/app/data/social";
+import { SECTIONS } from "@/core/data/sections";
+import { SOCIAL } from "@/core/data/social";
 
 export function Header() {
   const [open, setOpen] = useState(false);

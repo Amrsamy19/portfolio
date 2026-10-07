@@ -1,16 +1,16 @@
-import { PageLoader } from "@/components/PageLoader";
+import { PageLoader } from "@/components/ui/PageLoader";
 import { Header } from "@/components/layout/Header";
 import { VerticalEmail } from "@/components/layout/VerticalEmail";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Stack } from "@/components/sections/Stack";
-import { Experience } from "@/components/sections/Experience";
-import { Projects } from "@/components/sections/Projects";
-import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/sections/Footer";
+import { Hero } from "@/components/features/home/Hero";
+import { About } from "@/components/features/home/About";
+import { Stack } from "@/components/features/home/Stack";
+import { Experience } from "@/components/features/home/Experience";
+import { Projects } from "@/components/features/home/Projects";
+import { Contact } from "@/components/features/home/Contact";
+import { Footer } from "@/components/features/home/Footer";
 import { FloatingIcons } from "@/components/ui/FloatingIcons";
-import { getCmsData } from "@/lib/cms/api";
+import { getCmsData } from "@/core/cms/api";
 
 export default async function Home() {
   const cmsData = await getCmsData();

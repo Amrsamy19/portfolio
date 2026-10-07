@@ -1,15 +1,31 @@
+import { unstable_cache } from 'next/cache';
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
 
-import type { HeroData } from "@/components/sections/Hero";
-import type { AboutData } from "@/components/sections/About";
-import type { SkillData } from "@/components/sections/Stack";
-import type { ExperienceData } from "@/components/sections/Experience";
-import type { ProjectData } from "@/components/sections/Projects";
+import type { HeroData } from "@/components/features/home/Hero";
+import type { AboutData } from "@/components/features/home/About";
+import type { SkillData } from "@/components/features/home/Stack";
+import type { ExperienceData } from "@/components/features/home/Experience";
+import type { ProjectData } from "@/components/features/home/Projects";
+
+export interface ThemeData {
+  background: string;
+  foreground: string;
+  muted: string;
+  accent: string;
+  accentHover: string;
+  card: string;
+  border: string;
+}
+
+export interface SiteSettingsData {
+  title?: string;
+  description?: string;
+}
 
 export interface CmsData {
-  siteSettings: unknown;
-  theme: unknown;
+  siteSettings: SiteSettingsData;
+  theme: ThemeData;
   hero: HeroData;
   about: AboutData;
   projects: ProjectData[];
@@ -17,7 +33,7 @@ export interface CmsData {
   skills: SkillData[];
 }
 
-export async function getCmsData(): Promise<CmsData | null> {
+async function fetchCmsData(): Promise<CmsData | null> {
   try {
     const payload = await getPayload({ config: configPromise });
 
@@ -31,8 +47,8 @@ export async function getCmsData(): Promise<CmsData | null> {
     const skillsRes = await payload.find({ collection: 'skills', sort: 'order', limit: 100 });
 
     return {
-      siteSettings,
-      theme,
+      siteSettings: siteSettings as unknown as SiteSettingsData,
+      theme: theme as unknown as ThemeData,
       hero: {
         heading: hero.heading?.toString(),
         subheading: hero.subheading?.toString(),
@@ -77,3 +93,13 @@ export async function getCmsData(): Promise<CmsData | null> {
     return null; // Return null if DB is not seeded or reachable
   }
 }
+
+/**
+ * Cached wrapper around fetchCmsData.
+ * Re-validates every 5 minutes or when revalidateTag('cms') is called.
+ */
+export const getCmsData = unstable_cache(
+  fetchCmsData,
+  ['cms-data'],
+  { revalidate: 300, tags: ['cms'] }
+);
