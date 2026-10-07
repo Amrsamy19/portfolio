@@ -1,5 +1,3 @@
-import type { SkillData } from "@/components/features/home/Stack";
-
 export const STACK = {
   frontend: [
     "React",
