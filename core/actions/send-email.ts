@@ -1,10 +1,11 @@
 "use server";
 
 import { z } from "zod";
-import { Resend } from "resend";
 import { revalidatePath } from "next/cache";
+import { Resend } from "resend";
+import { env } from "@/core/env";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(env.RESEND_API_KEY);
 
 export type SendEmailState = {
   success: boolean;
@@ -43,7 +44,7 @@ export async function sendEmail(
 
   const { name, email, subject, message } = parsed.data;
 
-  if (!process.env.RESEND_API_KEY) {
+  if (!env.RESEND_API_KEY) {
     console.error("RESEND_API_KEY is not set.");
     return {
       success: false,
@@ -52,9 +53,9 @@ export async function sendEmail(
     };
   }
 
-  const recipient = process.env.RECIPIENT_EMAIL ?? "amrsamy622@gmail.com";
+  const recipient = env.RECIPIENT_EMAIL ?? "amrsamy622@gmail.com";
   const from =
-    process.env.RESEND_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>";
+    env.RESEND_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>";
 
   try {
     const { error } = await resend.emails.send({

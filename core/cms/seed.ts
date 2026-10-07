@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { loadEnvConfig } from '@next/env';
+loadEnvConfig(process.cwd());
+import fs from 'fs';
+import path from 'path';
 import { getPayload } from 'payload';
 import configPromise from '../../payload.config';
 import { PROJECTS } from '../../core/data/projects';
@@ -64,15 +67,16 @@ async function seed() {
   console.log('Seeding Collection: Projects...');
   let projectOrder = 0;
   for (const p of PROJECTS) {
+    console.log('Creating project:', p.title);
     await payload.create({
       collection: 'projects',
       data: {
-        title: p.name,
+        title: p.title,
         description: p.description,
-        isFreelance: p.freelance,
-        bullets: p.bullets.map((b) => ({ text: b })),
-        liveUrl: p.live ?? '',
-        repoUrl: p.repo ?? '',
+        isFreelance: p.isFreelance ?? false,
+        bullets: p.bullets,
+        liveUrl: p.liveUrl ?? '',
+        repoUrl: p.repoUrl ?? '',
         order: projectOrder++,
       } as any,
     });
@@ -81,12 +85,31 @@ async function seed() {
   console.log('Seeding Collection: Experience...');
   let expOrder = 0;
   for (const e of EXPERIENCE) {
+    let logoId = null;
+    if (e.logo) {
+      const filePath = path.join(process.cwd(), 'public', e.logo.replace(/^\//, ''));
+      if (fs.existsSync(filePath)) {
+        const media = await payload.create({
+          collection: 'media',
+          data: { alt: `${e.company} logo` },
+          filePath,
+        });
+        logoId = media.id;
+      } else {
+        console.warn(`Logo not found at ${filePath}`);
+      }
+    }
+
     await payload.create({
       collection: 'experience',
       data: {
         company: e.company,
         role: e.role,
         location: e.location,
+        startDate: e.startDate ? new Date(e.startDate).toISOString() : new Date().toISOString(),
+        endDate: e.endDate ? new Date(e.endDate).toISOString() : undefined,
+        isCurrent: e.isCurrent,
+        logo: logoId,
         order: expOrder++,
       } as any,
     });

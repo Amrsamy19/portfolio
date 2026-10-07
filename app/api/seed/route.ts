@@ -64,12 +64,12 @@ export async function GET(): Promise<NextResponse> {
       await payload.create({
         collection: 'projects',
         data: {
-          title: p.name,
+          title: p.title,
           description: p.description,
-          isFreelance: p.freelance,
-          bullets: p.bullets.map((b) => ({ text: b })),
-          liveUrl: p.live ?? '',
-          repoUrl: p.repo ?? '',
+          isFreelance: p.isFreelance ?? false,
+          bullets: p.bullets,
+          liveUrl: p.liveUrl ?? '',
+          repoUrl: p.repoUrl ?? '',
           order: projectOrder++,
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,

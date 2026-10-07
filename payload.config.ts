@@ -4,6 +4,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { env } from './core/env';
 
 import { Users } from './payload/collections/Users';
 import { Projects } from './payload/collections/Projects';
@@ -37,7 +38,7 @@ export default buildConfig({
     Theme,
   ],
   editor: lexicalEditor({}),
-  secret: process.env.PAYLOAD_SECRET || 'YOUR_SECRET_HERE',
+  secret: env.PAYLOAD_SECRET || 'YOUR_SECRET_HERE',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
@@ -52,12 +53,12 @@ export default buildConfig({
   }),
   plugins: [
     vercelBlobStorage({
-      enabled: !!process.env.BLOB_READ_WRITE_TOKEN,
+      enabled: !!env.BLOB_READ_WRITE_TOKEN,
       clientUploads: true,
       collections: {
         media: true,
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+      token: env.BLOB_READ_WRITE_TOKEN || '',
     }),
   ],
 });

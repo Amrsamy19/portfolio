@@ -18,6 +18,7 @@ export interface ExperienceData {
   isCurrent?: boolean;
   location: string;
   logo: string | { url?: string; [key: string]: unknown };
+  bullets?: string[];
 }
 
 function formatDate(dateStr?: string) {

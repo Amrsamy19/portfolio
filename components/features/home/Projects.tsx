@@ -19,15 +19,7 @@ export interface ProjectData {
 }
 
 export function Projects({ data }: { data?: ProjectData[] }) {
-  const projectsData = data && data.length > 0 ? data : PROJECTS.map(p => ({
-    id: p.id,
-    title: p.name,
-    description: p.description,
-    isFreelance: "freelance" in p ? p.freelance : false,
-    bullets: p.bullets.map(b => ({ text: b })),
-    liveUrl: p.live,
-    repoUrl: p.repo,
-  }));
+  const projectsData = data && data.length > 0 ? data : PROJECTS;
 
   return (
     <AnimatedSection

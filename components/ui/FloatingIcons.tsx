@@ -47,7 +47,7 @@ export function FloatingIcons() {
         
         return (
           <motion.div
-            key={i}
+            key={`${data.icon}-${i}`}
             className="absolute text-(--muted) opacity-[0.03]"
             style={{
               left: `${data.initialX}%`,

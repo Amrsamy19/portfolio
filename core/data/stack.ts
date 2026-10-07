@@ -1,3 +1,5 @@
+import type { SkillData } from "@/components/features/home/Stack";
+
 export const STACK = {
   frontend: [
     "React",
@@ -13,4 +15,4 @@ export const STACK = {
   backend: ["Node.js", "NestJS", "REST APIs", "GraphQL"],
   database: ["MongoDB", "PostgreSQL", "Prisma"],
   tools: ["Git", "GitHub", "AWS", "Vercel", "Auth0", "NextAuth"],
-} as const;
+} as const satisfies Record<string, string[]>;

@@ -1,3 +1,5 @@
+import type { ExperienceData } from "@/components/features/home/Experience";
+
 export const EXPERIENCE = [
   {
     company: "Simple Way",
@@ -6,7 +8,7 @@ export const EXPERIENCE = [
     endDate: undefined,
     isCurrent: true,
     location: "El-Shorouk, Cairo",
-    logo: "/simpleway.png",
+    logo: "/simpleway.jpg",
     bullets: [
       "Optimized nested workflow task rendering by building a custom useDelegatedTasks hook, utilizing Promise.all to parallelize assignment fetching and avoid sequential API waterfalls.",
       "Architected a dynamic Workflow Engine UI with a scalable WorkflowActionDrawer component, abstracting complex REST API payloads to handle 10+ distinct workflow actions including Delegation and Approvals.",
@@ -49,4 +51,4 @@ export const EXPERIENCE = [
     logo: "/cairo-university.png",
     bullets: [],
   },
-] as const;
+] as const satisfies readonly ExperienceData[];
